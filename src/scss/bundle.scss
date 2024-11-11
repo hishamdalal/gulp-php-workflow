@@ -1,0 +1,9 @@
+
+// @use './inc/vars';
+// @use './inc/lib/colors/functions';
+@use './inc/components/reset';
+@use './inc/components/nav';
+
+main {
+    padding-inline: 1rem;
+}
