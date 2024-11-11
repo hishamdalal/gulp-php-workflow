@@ -1,0 +1,16 @@
+@use '../lib/spacing/mixin' as space;
+
+main {
+    padding-inline: 1rem;
+    @include space.padding(md);
+
+    &.home {
+        .container {
+
+        }
+        .hero {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-transform: uppercase;
+        }
+    }
+}

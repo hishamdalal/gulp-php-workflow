@@ -18,9 +18,9 @@
         </nav>
     </header>
 
-    <main>
+    <main class="home">
         <div class="container">
-            <h1>Hello world</h1>
+            <h1 class="hero">Hello world</h1>
             <button id="button">Counter 0</button>
         </div>
         <aside>

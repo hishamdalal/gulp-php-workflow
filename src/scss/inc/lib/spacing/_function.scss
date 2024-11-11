@@ -1,0 +1,30 @@
+@use "sass:map";
+@use '../../vars';
+
+@function get_one($size:xs) {
+    @if map.has-key(vars.$spacing, $size) {
+        @return map.get(vars.$spacing, $size);
+    }
+    @else {
+        @warn "Spacing `#{$size}` is not exist";
+        @return 0rem;
+    }
+}
+
+
+@function get($vertical_size:'', $horizontal_size:'') {
+    $space: 0;
+
+    @if $vertical_size != '' and $horizontal_size != '' {
+        $spaceV: get_one($vertical_size);
+        $spaceH: get_one($horizontal_size);
+        $space: #{$spaceV} #{$spaceH};
+    }
+    @else if $vertical_size != '' {
+        $space: get_one($vertical_size);
+    }
+    @else if $horizontal_size != '' {
+        $space: get_one($horizontal_size);
+    }
+    @return $space;
+}

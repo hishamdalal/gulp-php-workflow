@@ -1,23 +1,31 @@
-@use '../lib/colors/functions';
+@use '../lib/colors/functions' as colors;
+// @use '../lib/spacing/function' as space_function;
+@use '../lib/spacing/mixin' as space;
 
 #main-header {
     nav {
         display: grid;
-        grid-template-columns: 1fr 4fr;
+        grid-template-columns: 1fr 6fr;
+        background-color:  colors.get(light);
+        padding-inline: 1rem;
     }
     .logo {
-        background-color:  functions.color(light);
+        display: grid;
+        margin-block: auto;
     }
     .nav {
-        padding-block: 0;
-        margin: 0;
         list-style: none;
         display: grid;
         grid-auto-flow: column;
         grid-auto-columns: min-content;
-        padding-inline: 1rem;
+        margin: 0;
+        padding-block: 0;
+        @include space.padding(lg);
     }
     li {
-        padding: .5rem 1rem;
+        // padding: .5rem 1rem;
+        @include space.padding(md, md);
+        // padding: space_function.get(md, lg);
     }
 }
+

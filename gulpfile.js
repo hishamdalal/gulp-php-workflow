@@ -32,6 +32,7 @@ function scss() {
         .pipe(postcss([cssnano()]))
         .pipe(sourcemaps.write())
         .pipe(dest('dist', { sourceMaps: '.' }))
+        .pipe(browserSync.stream());
 }
 
 function js() {
@@ -46,8 +47,8 @@ function js() {
 }
 
 
-// Browsersync Tasks
-function browsersyncServe(cb) {
+// BrowserSync Tasks
+function browserSyncServe(cb) {
     browserSync.init({
         proxy: "http://localhost/workflow/Gulp/gulp-php-workflow/dist/",
         port: 3000,
@@ -57,28 +58,28 @@ function browsersyncServe(cb) {
     });
     cb();
 }
-function browsersyncReload(cb) {
+function browserSyncReload(cb) {
     browserSync.reload();
     cb();
 }
-function browsersyncStream(cb) {
+function browserSyncStream(cb) {
     browserSync.stream();
     cb();
 }
 
 // Watch Task
 function watchTask() {
-    watch('src/*.php', series(php, browsersyncReload));
-    // watch('src/scss/**/*.scss', series(scss, browsersyncStream))
-    watch('src/scss/**/*.scss', series(scss, browsersyncReload))
-    watch('src/js/**/*.js', series(js, browsersyncReload))
+    watch('src/*.php', series(php, browserSyncReload));
+    // watch('src/scss/**/*.scss', series(scss, browserSyncStream))
+    watch('src/scss/**/*.scss', series(scss, browserSyncReload))
+    watch('src/js/**/*.js', series(js, browserSyncReload))
 }
 
 exports.default = series(
     php,
     scss,
     js,
-    browsersyncServe,
+    browserSyncServe,
     watchTask
 );
 

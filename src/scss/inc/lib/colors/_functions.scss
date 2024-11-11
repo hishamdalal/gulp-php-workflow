@@ -1,7 +1,7 @@
 @use "sass:map";
 @use '../../vars';
 
-@function color($name) {
+@function get($name) {
     @if map.has-key(vars.$colors, $name) {
         @return map.get(vars.$colors, $name);
     }

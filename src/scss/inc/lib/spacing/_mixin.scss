@@ -1,0 +1,17 @@
+@use './function';
+
+
+@mixin padding($vertical_size:'', $horizontal_size:'') {
+    @if $vertical_size != '' and $horizontal_size != '' {
+        $spaceV: function.get_one($vertical_size);
+        $spaceH: function.get_one($horizontal_size);
+        padding: #{$spaceV} #{$spaceH}
+    }
+    @else if $vertical_size != '' {
+        padding-inline: function.get_one($vertical_size);
+    }
+    @else if $horizontal_size != '' {
+        padding-block: function.get_one($horizontal_size);
+    }
+
+}
