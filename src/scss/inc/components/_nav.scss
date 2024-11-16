@@ -1,4 +1,4 @@
-@use '../lib/colors/functions' as colors;
+@use '../lib/colors/mixin' as color;
 // @use '../lib/spacing/function' as space_function;
 @use '../lib/spacing/mixin' as space;
 
@@ -6,8 +6,9 @@
     nav {
         display: grid;
         grid-template-columns: 1fr 6fr;
-        background-color:  colors.get(light);
-        padding-inline: 1rem;
+        @include color.bg(light);
+        // padding-inline: 1rem;
+        @include space.padding($h:md, $v:sm);
     }
     .logo {
         display: grid;
@@ -20,11 +21,11 @@
         grid-auto-columns: min-content;
         margin: 0;
         padding-block: 0;
-        @include space.padding(lg);
+        @include space.padding($h:lg);
     }
     li {
         // padding: .5rem 1rem;
-        @include space.padding(md, md);
+        @include space.padding($h:md);
         // padding: space_function.get(md, lg);
     }
 }

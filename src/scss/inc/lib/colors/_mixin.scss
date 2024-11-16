@@ -1,0 +1,13 @@
+@use './function';
+
+@mixin get($name) {
+    color: function.get($name);
+}
+
+@mixin fg($name) {
+    color: function.get($name);
+}
+
+@mixin bg($name) {
+    background-color: function.get($name);
+}

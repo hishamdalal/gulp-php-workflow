@@ -1,7 +1,10 @@
+@use "sass:meta";
+@use 'sass:list';
+
 @use './function';
 
 
-@mixin padding($vertical_size:'', $horizontal_size:'') {
+@mixin get($vertical_size, $horizontal_size:'') {
     @if $vertical_size != '' and $horizontal_size != '' {
         $spaceV: function.get_one($vertical_size);
         $spaceH: function.get_one($horizontal_size);
@@ -15,3 +18,95 @@
     }
 
 }
+
+/*------------------------------------------------------------*/
+@mixin _get($prop, $args...) {
+
+	@each $k, $v in meta.keywords($args) {
+
+		$v: function.get_one(#{$v});
+
+		// horizontal
+		@if($k=='h' or $k=='inline') {
+			#{$prop}-inline: #{$v};
+		}
+
+		// vertical
+		@if($k=='v' or $k=='block') {
+			#{$prop}-block: #{$v};
+		}
+
+		@if($k=='t' or $k=='top') {
+			#{$prop}-block-start: #{$v};
+		}
+
+		@if($k=='b' or $k=='bottom') {
+			#{$prop}-block-end: #{$v};
+		}
+
+		// right
+		@if($k=='r' or $k=='end') {
+			#{$prop}-inline-end: #{$v};
+		}
+
+		// left
+		@if($k=='l' or $k=='start') {
+			#{$prop}-inline-start: #{$v};
+		}
+
+		@if($k=='all' or $k=='both') {
+			#{$prop}: #{$v};
+		}
+
+		@if($k=='custom') {
+			#{$prop}: #{$v};
+		}
+
+	}
+
+}
+
+/*------------------------------------------------------------*/
+//? How to use:
+// @include padding($both:lg);
+// @include padding($v:xs, $h:sm);
+// @include padding($inline:md, $block:lg);
+// @include padding($horizontal:md, $vertical:xl);
+
+
+@mixin padding($args...) {
+	@include _get('padding', $args...);
+}
+/*------------------------------------------------------------*/
+@mixin margin($args...) {
+	@include _get('margin', $args...);
+}
+
+/*------------------------------------------------------------*/
+//? How to use:
+// @include gap(md);
+// @include gap($h:md, $v:lg);
+// @include gap($inline:md, $block:lg);
+
+@mixin gap($args...) {
+	$len: list.length($args);
+	@if $len == 1 {
+		$v: function.get_one(#{$args});
+		gap: #{$v};
+	}
+	@else {
+
+		@each $k, $v in meta.keywords($args) {
+			
+			$v: function.get_one(#{$v});
+					
+			@if($k=='h' or $k=='inline') {
+				gap-inline: #{$v};
+			}
+			@else if($k=='v' or $k=='block') {
+				gap-block: #{$v};
+			}
+		}
+	}
+}
+/*------------------------------------------------------------*/

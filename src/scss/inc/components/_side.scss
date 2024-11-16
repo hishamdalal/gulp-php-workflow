@@ -1,0 +1,17 @@
+@use '../lib/colors/mixin' as color;
+@use '../lib/spacing/mixin' as space;
+
+aside {
+    .title {
+        font-weight: 700;
+    }
+    .list {
+        list-style: none;
+        padding: 0;
+
+        a {
+            display: block;
+            @include space.padding($v:sm);
+        }
+    }
+}

@@ -1,0 +1,29 @@
+@use '../lib/spacing/mixin' as space;
+@use '../lib/spacing/function' as spacef;
+@use '../lib/colors/mixin' as color;
+@use '../lib/colors/function' as colorf;
+
+
+.post {
+    display: grid;
+    grid-template-columns: 2fr 6fr;
+    @include space.gap(md);
+
+    .thumb {
+        width: 100%;
+    }
+    .title {
+        font-weight: 900;
+    }
+    .read-more {
+        border: 1px solid colorf.get(primary);
+        display: block;
+        @include space.padding($h:md, $v:xs);
+        @include space.margin($t:md);
+        justify-self: end;
+
+        &:hover {
+            @include color.bg(light);
+        }
+    }
+}

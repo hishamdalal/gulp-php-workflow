@@ -1,16 +1,27 @@
 @use '../lib/spacing/mixin' as space;
+// @use '../lib/spacing/function' as spacef;
 
 main {
     padding-inline: 1rem;
-    @include space.padding(md);
+    @include space.padding($all:md);
+
 
     &.home {
-        .container {
+        display: grid;
+        grid-template-columns: 9fr 3fr;
+        @include space.padding($both:lg);
+        @include space.gap(lg);
+        
+        // .container { }
+        .hero {
+            font-weight: 900;
+            text-transform: uppercase;
+            // padding-bottom: spacef.get(lg);
+            @include space.padding($b:lg)
 
         }
-        .hero {
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            text-transform: uppercase;
-        }
+    }
+    #button {
+        @include space.margin($b:lg);
     }
 }

@@ -1,8 +1,8 @@
-
-// @use './inc/vars';
-// @use './inc/lib/colors/functions';
-
-@use './inc/components/reset';
+@use './inc/components/normalize';
+@use './inc/components/global';
+@use './inc/components/typography';
 @use './inc/components/nav';
 @use './inc/components/main';
+@use './inc/components/side';
+@use './inc/components/article';
 

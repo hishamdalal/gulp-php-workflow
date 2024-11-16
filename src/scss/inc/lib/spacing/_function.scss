@@ -1,9 +1,12 @@
 @use "sass:map";
 @use '../../vars';
 
-@function get_one($size:xs) {
+@function get_one($size) {
     @if map.has-key(vars.$spacing, $size) {
         @return map.get(vars.$spacing, $size);
+    }
+    @else if $size == 0 {
+        @return 0rem;
     }
     @else {
         @warn "Spacing `#{$size}` is not exist";
@@ -28,3 +31,5 @@
     }
     @return $space;
 }
+
+
