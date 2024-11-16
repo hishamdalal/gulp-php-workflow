@@ -11,3 +11,11 @@
 @mixin bg($name) {
     background-color: function.get($name);
 }
+
+@mixin border($name) {
+    border-color: function.get($name);
+}
+
+@mixin custom($prop, $name) {
+    #{$prop}: function.get($name);
+}

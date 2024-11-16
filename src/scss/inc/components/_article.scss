@@ -6,21 +6,39 @@
 
 .post {
     display: grid;
+    grid-template-areas: "title title" "thumb text" "link link";
     grid-template-columns: 2fr 6fr;
-    @include space.gap(md);
+    grid-template-rows: auto auto auto;
+    @include space.gap($h:md, $v:sm);
+    border: 1px solid colorf.get(primary);
+    @include space.padding($both:md);
 
-    .thumb {
-        width: 100%;
-    }
     .title {
+        grid-area: title;
         font-weight: 900;
     }
+    .thumb {
+        grid-area: thumb;
+        max-width: 100%;
+    }
+    .text {
+        grid-area: text;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        p:first-child {
+            @include space.margin($t:0);
+        }
+    }
+
     .read-more {
+        grid-area: link;
         border: 1px solid colorf.get(primary);
         display: block;
         @include space.padding($h:md, $v:xs);
-        @include space.margin($t:md);
-        justify-self: end;
+        // @include space.margin($t:md);
+        align-self: self-end;
 
         &:hover {
             @include color.bg(light);

@@ -32,9 +32,9 @@ $url = full_url( $_SERVER );
             <h1 class="hero">Hello world</h1>
             <button id="button">Counter 0</button>
             <article class="post">
+                <h3 class="title">Post title</h3>
                 <img class="thumb" src="<?=$url?>assets/img/peter-livesey-unsplash.jpg" alt="">
                 <div class="text">
-                    <h3>Post title</h3>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias dolores, quasi aut, non pariatur esse, impedit voluptatem praesentium beatae architecto possimus? Quae delectus quisquam perferendis eius dolorem. Molestias, inventore consequuntur?</p>
                     <a class="btn read-more" href="#">Read more</a>
                 </div>

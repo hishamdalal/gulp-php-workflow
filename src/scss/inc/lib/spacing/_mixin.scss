@@ -101,10 +101,10 @@
 			$v: function.get_one(#{$v});
 					
 			@if($k=='h' or $k=='inline') {
-				gap-inline: #{$v};
+				column-gap: #{$v};
 			}
 			@else if($k=='v' or $k=='block') {
-				gap-block: #{$v};
+				row-gap: #{$v};
 			}
 		}
 	}
