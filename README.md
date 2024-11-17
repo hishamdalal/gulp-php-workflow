@@ -21,6 +21,10 @@ cd gulp-php-workflow
 #### install packages
 
 ```cmd
+npm install -g gulp-cli
+```
+
+```cmd
 npm install
 ```
 
