@@ -1,36 +1,36 @@
 # Gulp PHP Workflow
 
-## About
+### About
 
 Rapid web development with php, scss and javascript.
 
-## How to use:
+### How to use:
 
-### Clone repo
+#### Clone repo
 
 ```cmd
 git clone https://github.com/hishamdalal/gulp-php-workflow.git
 ```
 
-### Change directory
+#### Change directory
 
 ```cmd
 cd gulp-php-workflow
 ```
 
-### install packages
+#### install packages
 
 ```cmd
 npm install
 ```
 
-### Start development
+#### Start development
 
 ```cmd
 npm start
 ```
 
-### Build
+#### Build
 
 ```cmd
 npm run build
