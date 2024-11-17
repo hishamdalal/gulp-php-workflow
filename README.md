@@ -3,21 +3,26 @@
 ## How to use:
 
 ### Clone repo
-
-`cmd git clone https://github.com/hishamdalal/gulp-php-workflow.git`
+```cmd 
+git clone https://github.com/hishamdalal/gulp-php-workflow.git
+```
 
 ### Change directory
-
-`cd gulp-php-workflow `
+```cmd
+cd gulp-php-workflow
+```
 
 ### install packages
-
-`npm install`
+```cmd
+npm install
+```
 
 ### Start development
-
-`npm start`
+```cmd
+npm start
+```
 
 ### Build
-
-`npm run build`
+```cmd
+npm run build
+```
