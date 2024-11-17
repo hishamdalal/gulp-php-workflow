@@ -6,6 +6,7 @@ $colors: (
     secondary: #599afe,
     secondary-1: #00bcd4,
     secondary-2: #599afe,
+    accent: #a50837,
     dark: #242122,
     dark-1: #333333,
     dark-2: #3e3e3e,
@@ -14,12 +15,16 @@ $colors: (
     light-1: #efefef,
     light-2: #fafafa,
     light-3: #ffffff,
+    transparency: #ffffff00,
 );
 
 $spacing: (
-    xs: .2rem,
-    sm: .5rem,
+    xxs: .1rem,
+    xs: .3rem,
+    sm: .6rem,
     md: 1rem,
     lg: 2rem,
     xl: 3rem,
+    xxl: 6rem,
+    none: 0
 );

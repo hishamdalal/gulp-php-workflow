@@ -1,27 +1,32 @@
-@use '../lib/spacing/mixin' as space;
-// @use '../lib/spacing/function' as spacef;
+@use '../lib/spacing' as space;
+@use '../lib/colors' as color;
 
 main {
-    padding-inline: 1rem;
-    @include space.padding($all:md);
+    display: grid;
+    grid-template-columns: 9fr 3fr;
+    // @include space.padding($both:lg);
+    @include space.gap(lg);
 
-
-    &.home {
+    // .container { }
+    .hero {
         display: grid;
-        grid-template-columns: 9fr 3fr;
-        @include space.padding($both:lg);
-        @include space.gap(lg);
-        
-        // .container { }
-        .hero {
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        @include color.bg('primary-light');
+        @include space.margin($b: lg);
+        // @include space.padding($custom: 6rem 1rem);
+        @include space.padding($v:xxl, $h:lg);
+
+        h1 {
             font-weight: 900;
             text-transform: uppercase;
-            // padding-bottom: spacef.get(lg);
-            @include space.padding($b:lg)
-
+            @include space.padding($b: lg)
         }
     }
+
     #button {
-        @include space.margin($b:lg);
+        @include space.margin($b: lg);
+        justify-self: center;
     }
 }

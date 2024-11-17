@@ -19,18 +19,20 @@ $url = full_url( $_SERVER );
     <header id="main-header">
         <nav>
             <div class="logo">LOGO</div>
-            <ul class="nav">
+            <ul class="items">
                 <li><a href="#">Home</a></li>
-                <li><a href="#">about</a></li>
-                <li><a href="#">contact</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="home">
         <div class="container">
-            <h1 class="hero">Hello world</h1>
-            <button id="button">Counter 0</button>
+            <div class="hero">
+                <h1>Hello world</h1>
+                <button id="button">Counter 0</button>
+            </div>
             <article class="post">
                 <h3 class="title">Post title</h3>
                 <img class="thumb" src="<?=$url?>assets/img/peter-livesey-unsplash.jpg" alt="">
@@ -50,6 +52,6 @@ $url = full_url( $_SERVER );
         </aside>
     </main>
         
-    <script src="assets/bundle.js"></script>
+    <script src="<?=$url?>assets/bundle.js"></script>
 </body>
 </html> 

@@ -2,11 +2,11 @@
 @use '../../vars';
 
 @function get_one($size) {
-    @if map.has-key(vars.$spacing, $size) {
-        @return map.get(vars.$spacing, $size);
-    }
-    @else if $size == 0 {
+    @if $size == 0 {
         @return 0rem;
+    }
+    @else if map.has-key(vars.$spacing, $size) {
+        @return map.get(vars.$spacing, $size);
     }
     @else {
         @warn "Spacing `#{$size}` is not exist";

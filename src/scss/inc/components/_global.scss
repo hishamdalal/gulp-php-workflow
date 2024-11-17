@@ -8,6 +8,6 @@ a {
     text-decoration: none;
 
     &:hover {
-        @include color.get(primary);
+        @include color.fg(primary);
     }
 }

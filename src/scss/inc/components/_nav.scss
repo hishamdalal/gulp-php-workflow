@@ -1,32 +1,36 @@
-@use '../lib/colors/mixin' as color;
+@use '../lib/colors' as color;
 // @use '../lib/spacing/function' as space_function;
-@use '../lib/spacing/mixin' as space;
+@use '../lib/spacing' as space;
 
 #main-header {
     nav {
         display: grid;
         grid-template-columns: 1fr 6fr;
         @include color.bg(light);
-        // padding-inline: 1rem;
-        @include space.padding($h:md, $v:sm);
+        @include space.padding($h:lg, $v:none);
     }
     .logo {
         display: grid;
         margin-block: auto;
+        cursor: pointer;
+        font-weight: 700;
     }
-    .nav {
+    .items {
         list-style: none;
         display: grid;
         grid-auto-flow: column;
         grid-auto-columns: min-content;
         margin: 0;
-        padding-block: 0;
-        @include space.padding($h:lg);
-    }
-    li {
-        // padding: .5rem 1rem;
-        @include space.padding($h:md);
-        // padding: space_function.get(md, lg);
+
+
+        a {
+            display: block;
+            @include space.padding($h:md, $v:sm);
+            border-bottom: 2px solid color.get(transparency);
+        }
+        a:hover {
+            border-bottom: 2px solid color.get(accent);
+        }
     }
 }
 

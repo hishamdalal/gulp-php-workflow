@@ -1,7 +1,5 @@
-@use '../lib/spacing/mixin' as space;
-@use '../lib/spacing/function' as spacef;
-@use '../lib/colors/mixin' as color;
-@use '../lib/colors/function' as colorf;
+@use '../lib/spacing' as space;
+@use '../lib/colors' as color;
 
 
 .post {
@@ -10,8 +8,10 @@
     grid-template-columns: 2fr 6fr;
     grid-template-rows: auto auto auto;
     @include space.gap($h:md, $v:sm);
-    border: 1px solid colorf.get(primary);
+    border: 1px solid color.get(primary);
     @include space.padding($both:md);
+    @include space.margin($h:lg);
+    border-radius: .6rem;
 
     .title {
         grid-area: title;
@@ -28,13 +28,13 @@
         justify-content: space-between;
 
         p:first-child {
-            @include space.margin($t:0);
+            @include space.margin($t:none);
         }
     }
 
     .read-more {
         grid-area: link;
-        border: 1px solid colorf.get(primary);
+        border: 1px solid color.get(primary);
         display: block;
         @include space.padding($h:md, $v:xs);
         // @include space.margin($t:md);

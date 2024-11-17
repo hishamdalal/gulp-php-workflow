@@ -1,21 +1,21 @@
 @use './function';
 
-@mixin get($name) {
-    color: function.get($name);
+@mixin _get($prop, $name) {
+    #{$prop}: function.get($name);
 }
 
 @mixin fg($name) {
-    color: function.get($name);
+    @include _get(color, $name);
 }
 
 @mixin bg($name) {
-    background-color: function.get($name);
+    @include _get(background-color, $name);
 }
 
 @mixin border($name) {
-    border-color: function.get($name);
+    @include _get(border-color, $name);
 }
 
 @mixin custom($prop, $name) {
-    #{$prop}: function.get($name);
+    @include _get($prop, $name);
 }

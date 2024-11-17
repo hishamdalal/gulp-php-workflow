@@ -4,66 +4,70 @@
 @use './function';
 
 
-@mixin get($vertical_size, $horizontal_size:'') {
-    @if $vertical_size != '' and $horizontal_size != '' {
-        $spaceV: function.get_one($vertical_size);
-        $spaceH: function.get_one($horizontal_size);
-        padding: #{$spaceV} #{$spaceH}
-    }
-    @else if $vertical_size != '' {
-        padding-inline: function.get_one($vertical_size);
-    }
-    @else if $horizontal_size != '' {
-        padding-block: function.get_one($horizontal_size);
-    }
-
-}
+// @mixin get($vertical_size, $horizontal_size:'') {
+//     @if $vertical_size != '' and $horizontal_size != '' {
+//         $spaceV: function.get_one($vertical_size);
+//         $spaceH: function.get_one($horizontal_size);
+//         padding: #{$spaceV} #{$spaceH}
+//     }
+//     @else if $vertical_size != '' {
+//         padding-inline: function.get_one($vertical_size);
+//     }
+//     @else if $horizontal_size != '' {
+//         padding-block: function.get_one($horizontal_size);
+//     }
+// }
 
 /*------------------------------------------------------------*/
 @mixin _get($prop, $args...) {
 
 	@each $k, $v in meta.keywords($args) {
 
-		$v: function.get_one(#{$v});
-
-		// horizontal
-		@if($k=='h' or $k=='inline') {
-			#{$prop}-inline: #{$v};
-		}
-
-		// vertical
-		@if($k=='v' or $k=='block') {
-			#{$prop}-block: #{$v};
-		}
-
-		@if($k=='t' or $k=='top') {
-			#{$prop}-block-start: #{$v};
-		}
-
-		@if($k=='b' or $k=='bottom') {
-			#{$prop}-block-end: #{$v};
-		}
-
-		// right
-		@if($k=='r' or $k=='end') {
-			#{$prop}-inline-end: #{$v};
-		}
-
-		// left
-		@if($k=='l' or $k=='start') {
-			#{$prop}-inline-start: #{$v};
-		}
-
-		@if($k=='all' or $k=='both') {
-			#{$prop}: #{$v};
-		}
-
+		// Custom
 		@if($k=='custom') {
 			#{$prop}: #{$v};
 		}
+		@else {
+			
+			$v: function.get_one(#{$v});
 
+			// Horizontal
+			@if($k=='h' or $k=='inline') {
+				#{$prop}-inline: #{$v};
+			}
+
+			// Vertical
+			@if($k=='v' or $k=='block') {
+				#{$prop}-block: #{$v};
+			}
+			// Top
+			@if($k=='t' or $k=='top') {
+				#{$prop}-block-start: #{$v};
+			}
+			// Bottom
+			@if($k=='b' or $k=='bottom') {
+				#{$prop}-block-end: #{$v};
+			}
+
+			// Right
+			@if($k=='r' or $k=='end') {
+				#{$prop}-inline-end: #{$v};
+			}
+
+			// Left
+			@if($k=='l' or $k=='start') {
+				#{$prop}-inline-start: #{$v};
+			}
+			// All
+			@if($k=='all' or $k=='both') {
+				#{$prop}: #{$v};
+			}
+			// All
+			@if($k=='n' or $k=='none') {
+				#{$prop}: 0rem;
+			}
+		}
 	}
-
 }
 
 /*------------------------------------------------------------*/
@@ -75,11 +79,11 @@
 
 
 @mixin padding($args...) {
-	@include _get('padding', $args...);
+	@include _get(padding, $args...);
 }
 /*------------------------------------------------------------*/
 @mixin margin($args...) {
-	@include _get('margin', $args...);
+	@include _get(margin, $args...);
 }
 
 /*------------------------------------------------------------*/
