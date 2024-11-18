@@ -4,6 +4,13 @@
 
 Rapid web development with php, scss and javascript.
 
+### Requirments
+
+- node: v20.18.0
+- npm: 10.9.0
+- gulp-cli: 3.0.0
+- gulp: 5.0.0
+
 ### How to use:
 
 #### Clone repo
