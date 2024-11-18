@@ -1,0 +1,25 @@
+@use '../../vars';
+@use './function';
+@use './mixin';
+@use '../colors' as color;
+
+
+.screen-size {
+    position: fixed;
+    bottom: 1rem;
+    inset-inline-end: 1rem;
+    @include color.bg(primary);
+    @include color.fg(dark);
+    @include color.border(accent);
+    padding: 1rem 2rem;
+    
+    &>div { display: none}
+
+    @each $key, $map in vars.$breakpoints {
+        
+		@include mixin.equal-to($key){
+			& > div.#{$key} { display: block;}
+		}
+	}
+
+}

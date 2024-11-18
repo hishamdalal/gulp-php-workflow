@@ -1,0 +1,20 @@
+
+@use '../../vars';
+@use './function';
+
+/*------------------------------------------------------------*/
+@mixin equal-to($key) {
+	$min: function.get($key);
+	$max: function.max($key);
+	
+	@if $max == none {
+		@media (min-width:#{$min}) {
+			@content;
+		}
+	}
+	@else {
+		@media (min-width:#{$min}) and (max-width:#{$max}) {
+			@content;
+		}
+	}
+}

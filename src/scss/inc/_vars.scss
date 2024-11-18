@@ -28,3 +28,17 @@ $spacing: (
     xxl: 6rem,
     none: 0
 );
+
+$breakpoints: (
+	zero:    (val: 0px,     prev:none,  next:xxxs),
+	xxxs:    (val: 200px,   prev:zero,  next:xxs),
+	xxs:     (val: 300px,   prev:xxxs,  next:xs),
+	xs:      (val: 430px,   prev:xxs,   next:sm),
+	sm:      (val: 576px,   prev:xs,    next:md),
+	md:      (val: 768px,   prev:sm,    next:lg),
+	lg:      (val: 992px,   prev:md,    next:xl),
+	xl:      (val: 1200px,  prev:lg,    next:xxl),
+	xxl:     (val: 1400px,  prev:xl,    next:xxxl),
+	xxxl:    (val: 2000px,  prev:xxl,   next:infinity),
+	infinity:(val: 10000px, prev:xxxl,  next:none),
+);

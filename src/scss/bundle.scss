@@ -1,6 +1,7 @@
 @use './inc/components/normalize';
 @use './inc/components/global';
 @use './inc/components/typography';
+@use './inc/lib/breakpoints';
 @use './inc/components/nav';
 @use './inc/components/main';
 @use './inc/components/side';
