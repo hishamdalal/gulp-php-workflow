@@ -1,5 +1,7 @@
 # Gulp PHP Workflow
 
+![Logo](https://raw.githubusercontent.com/hishamdalal/gulp-php-workflow/refs/heads/main/Logo.png?raw=true)
+
 ### About
 
 Rapid web development with php, scss and javascript.
