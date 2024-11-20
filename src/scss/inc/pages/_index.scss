@@ -1,3 +1,38 @@
-@use '../lib/spacing/mixin' as space;
-@use '../lib/spacing/function' as spacef;
+@use '../lib/spacing' as space;
+@use '../lib/colors' as color;
+@use '../lib/breakpoints' as breakpoint;
 
+main {
+    display: grid;
+    // @include space.gap(md);
+    
+    @include breakpoint.more-than(md) {
+        grid-template-columns: 9fr 3fr;
+    }
+    // @include space.padding($both:lg);
+
+    // .container { }
+    .hero {
+        display: grid;
+        @include color.bg('primary-light');
+        @include space.margin($b: lg);
+        // @include space.padding($custom: 6rem 1rem);
+        @include space.padding($v:xxl, $h:xxl);
+
+        h1 {
+            font-weight: 900;
+            text-transform: uppercase;
+            @include space.padding($b: lg)
+        }
+
+        p {
+            font-size: large;
+            @include space.margin($v:xs);
+        }
+    }
+
+    #button {
+        @include space.margin($v: lg);
+        justify-self: center;
+    }
+}

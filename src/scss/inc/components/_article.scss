@@ -10,7 +10,7 @@
     @include space.gap($h:md, $v:sm);
     border: 1px solid color.get(primary);
     @include space.padding($both:md);
-    @include space.margin($h:lg);
+    @include space.margin($h:lg, $b:lg);
     border-radius: .6rem;
 
     .title {

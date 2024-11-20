@@ -1,0 +1,24 @@
+@use '../vars';
+@use '../lib/colors' as color;
+@use '../lib/spacing' as space;
+@use '../lib/breakpoints';
+
+.screen-size {
+    position: fixed;
+    inset-block-end: space.get(md);
+    inset-inline-end: space.get(md);
+    @include color.bg(primary);
+    @include color.fg(dark);
+    @include color.border(accent);
+    padding: 1rem 2rem;
+    
+    &>div { display: none}
+
+    @each $key, $map in vars.$breakpoints {
+        
+		@include breakpoints.equal-to($key){
+			& > div.#{$key} { display: block;}
+		}
+	}
+
+}

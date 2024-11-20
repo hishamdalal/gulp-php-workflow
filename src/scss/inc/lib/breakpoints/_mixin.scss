@@ -5,7 +5,7 @@
 /*------------------------------------------------------------*/
 @mixin equal-to($key) {
 	$min: function.get($key);
-	$max: function.max($key);
+	$max: function.max($key) - 0.2;
 	
 	@if $max == none {
 		@media (min-width:#{$min}) {
@@ -18,3 +18,28 @@
 		}
 	}
 }
+/*------------------------------------------------------------*/
+@mixin more-than($key) {
+	$point: function.get($key, next);
+	$point: function.get($point);
+	@media (min-width:#{$point}) {
+		@content;
+	}
+}
+/*------------------------------------------------------------*/
+@mixin less-than($key) {
+	$point: function.get($key) - 0.2;
+	@media (max-width:#{$point}) {
+		@content;
+	}
+}
+/*------------------------------------------------------------*/
+@mixin between($key1, $key2) {
+	$point1: function.get($key1);
+	$point2: function.get($key2);
+
+	@media (min-width:#{$point1}) and (max-width:#{$point2}) {
+		@content;
+	}
+}
+/*------------------------------------------------------------*/

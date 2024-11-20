@@ -1,8 +1,14 @@
 @use '../lib/colors' as color;
 @use '../lib/spacing' as space;
+@use '../lib/breakpoints' as breakpoint;
 
 aside {
-    @include space.padding($t:md);
+    @include space.padding($t:md, $start:lg);
+    @include space.margin($b:lg);
+
+    @include breakpoint.less-than(lg) {
+        @include space.margin($end:lg);
+    }
     
     .title {
         font-weight: 700;
