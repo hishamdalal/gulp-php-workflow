@@ -85,6 +85,11 @@
 @mixin margin($args...) {
 	@include _get(margin, $args...);
 }
+/*------------------------------------------------------------*/
+// When position is absolute you can set position values: top, bottom, left, right 
+@mixin inset($args...) {
+	@include _get(inset, $args...);
+}
 
 /*------------------------------------------------------------*/
 //? How to use:

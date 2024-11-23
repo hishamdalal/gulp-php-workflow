@@ -1,0 +1,9 @@
+@forward './function';
+@forward './mixin';
+@forward './init';
+
+@use '../../vars/typography' as vars;
+
+@each $type, $font in vars.$fonts {
+    @import url("#{$font}");
+}

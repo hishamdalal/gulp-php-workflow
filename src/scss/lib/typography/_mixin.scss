@@ -1,0 +1,30 @@
+@use "sass:map";
+@use '../../vars/typography' as vars;
+@use './function';
+
+/*------------------------------------------------------------*/
+@mixin collection($name) {
+	$family: get(vars.$collection, $name, 'font-family');
+	$weight: get(vars.$collection, $name, 'font-weight');
+	$size:   get(vars.$collection, $name, 'font-size');
+
+	font-family: #{$family};
+	font-weight: #{$weight};
+	font-size:   #{$size};
+}
+/*------------------------------------------------------------*/
+@mixin family($name) {
+	$family: get(vars.$collection, $name, 'font-family');
+	font-family: #{$family};
+}
+/*------------------------------------------------------------*/
+@mixin weight($name) {
+	$weight: get(vars.$collection, $name, 'weight');
+	font-weight: #{$weight};
+}
+/*------------------------------------------------------------*/
+@mixin size($name) {
+	$size: get(vars.$collection, $name, 'size');
+	font-size:   #{$size};
+}
+/*------------------------------------------------------------*/

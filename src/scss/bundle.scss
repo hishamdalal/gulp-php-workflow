@@ -1,11 +1,9 @@
-@use './inc/components/normalize';
-@use './inc/components/global';
-@use './inc/components/typography';
-@use './inc/lib/breakpoints';
-@use './inc/components/nav';
-@use './inc/components/side';
-@use './inc/components/article';
-@use './inc/pages/index';
-@use './inc/debug/breakpoint';
+@use './vendors/normalize';
+@use './components/global';
+@use './components/nav';
+@use './components/side';
+@use './components/article';
+@use './pages/index';
+@use './debug/breakpoint';
 
 

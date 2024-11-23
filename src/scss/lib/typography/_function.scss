@@ -1,0 +1,14 @@
+@use "sass:map";
+@use '../../vars/typography' as vars;
+
+
+@function get($name, $type:font-family) {
+
+    @if map-has-key(settings.$font-family, $type) {
+        @return map.get(vars.$collection, $name, $type);
+    }
+    @else {
+        @warn 'Font collection property  (#{$name}/#{$type}) is not exist';
+    }
+
+}
