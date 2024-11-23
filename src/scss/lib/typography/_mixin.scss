@@ -4,9 +4,9 @@
 
 /*------------------------------------------------------------*/
 @mixin collection($name) {
-	$family: get(vars.$collection, $name, 'font-family');
-	$weight: get(vars.$collection, $name, 'font-weight');
-	$size:   get(vars.$collection, $name, 'font-size');
+	$family: function.get($name, 'family');
+	$weight: function.get($name, 'weight');
+	$size:   function.get($name, 'size');
 
 	font-family: #{$family};
 	font-weight: #{$weight};
@@ -14,17 +14,17 @@
 }
 /*------------------------------------------------------------*/
 @mixin family($name) {
-	$family: get(vars.$collection, $name, 'font-family');
+	$family: function.get($name, 'family');
 	font-family: #{$family};
 }
 /*------------------------------------------------------------*/
 @mixin weight($name) {
-	$weight: get(vars.$collection, $name, 'weight');
+	$weight: function.get($name, 'weight');
 	font-weight: #{$weight};
 }
 /*------------------------------------------------------------*/
 @mixin size($name) {
-	$size: get(vars.$collection, $name, 'size');
+	$size: function.get($name, 'size');
 	font-size:   #{$size};
 }
 /*------------------------------------------------------------*/
