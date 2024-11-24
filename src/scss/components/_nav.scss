@@ -4,6 +4,9 @@
 @use '../lib/animation/transition';
 
 #main-header {
+    position: fixed;
+    width: 100%;
+    
     nav {
         display: grid;
         grid-template-columns: 1fr 6fr;
@@ -21,14 +24,14 @@
         grid-auto-flow: column;
         grid-auto-columns: min-content;
         margin: 0;
-        gap: 2px;
+        @include space.gap(xs);
 
 
         a {
             display: block;
             position: relative;
             @include space.padding($h:md, $v:sm);
-            @include color.fg(primary);
+            @include color.fg(dark-3);
             z-index: 10;
             // border-bottom: 2px solid color.get(transparency);
             //@include animate.ease($property:(border, color));

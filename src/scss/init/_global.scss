@@ -1,5 +1,6 @@
 @use '../lib/colors' as color;
 @use '../lib/spacing/mixin' as space;
+@use '../lib/animation/transition' as trans;
 
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
@@ -18,11 +19,16 @@ a {
 .btn {
     cursor: pointer;
     @include space.padding($h:md, $v:xs);
-    border: 1px solid color.get(primary-dark);
+    border: 1px solid color.get(dark);
+    @include trans.ease($duration:100ms, $property:(color, background-color));
+
+    &:hover, &:active {
+        @include color.fg(light);
+        @include color.bg(accent);
+    }
 
     &:hover {
         box-shadow: inset 0 0 3px  color.get(dark);;
-        @include color.bg(light);
     }
     &:active {
         box-shadow: inset 0 0 6px  color.get(dark);;

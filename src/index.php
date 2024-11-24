@@ -33,7 +33,7 @@ $url = full_url( $_SERVER );
                 <h1>Hello world</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit quas voluptates reprehenderit necessitatibus, sapiente impedit reiciendis, libero nulla? </p>
                 <p>Hic, provident ea cumque fuga adipisci voluptates non consequuntur dolores nobis eum facilis dolore asperiores tenetur quia laudantium est autem.</p>
-                <button id="button" class="btn">Counter 0</button>
+                <button id="button" class="btn">Counter: 0</button>
             </div>
             <article class="post">
                 <h3 class="title">Post title</h3>
@@ -45,7 +45,7 @@ $url = full_url( $_SERVER );
             </article>
         </div>
         <aside>
-            <h3 class="title">Title</h3>
+            <h3 class="title">Side Title</h3>
             <ul class="list">
                 <li><a href="#">Link 1</a></li>
                 <li><a href="#">Link 2</a></li>
