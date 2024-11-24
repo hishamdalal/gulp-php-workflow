@@ -1,5 +1,6 @@
 @use "sass:meta";
 @use 'sass:list';
+@use "sass:string";
 
 @use './function';
 
@@ -28,9 +29,20 @@
 			#{$prop}: #{$v};
 		}
 		@else {
+			// for minus value
+			// @include space.margin($l:-sm);
+			$negative: string.index($v, "-");
+			@if $negative {
+				$len: string.length($v);
+				$v: string.slice($v, 2, $len);
+			}
 			
 			$v: function.get_one(#{$v});
 
+			@if $negative {
+				$v: #{$v * -1};
+			}
+			
 			// Horizontal
 			@if($k=='h' or $k=='inline') {
 				#{$prop}-inline: #{$v};
@@ -63,7 +75,7 @@
 				#{$prop}: #{$v};
 			}
 			// All
-			@if($k=='n' or $k=='none') {
+			@if($k=='z' or $k=='zero') {
 				#{$prop}: 0rem;
 			}
 		}

@@ -1,13 +1,13 @@
 @use '../lib/colors' as color;
 // @use '../lib/spacing/function' as space_function;
 @use '../lib/spacing' as space;
+@use '../lib/animation/transition';
 
 #main-header {
     nav {
         display: grid;
         grid-template-columns: 1fr 6fr;
-        @include color.bg(light);
-        @include space.padding($h:lg, $v:none);
+        @include space.padding($h:lg, $v:zero);
     }
     .logo {
         display: grid;
@@ -21,16 +21,55 @@
         grid-auto-flow: column;
         grid-auto-columns: min-content;
         margin: 0;
+        gap: 2px;
 
 
         a {
             display: block;
+            position: relative;
             @include space.padding($h:md, $v:sm);
-            border-bottom: 2px solid color.get(transparency);
+            @include color.fg(primary);
+            z-index: 10;
+            // border-bottom: 2px solid color.get(transparency);
+            //@include animate.ease($property:(border, color));
+            // transition: ease-in-out 1s 0 all;
+            @include transition.hover($property:(border, background-color)) {
+                //border-bottom: 2px solid color.get(accent);
+
+                @include color.fg(light);
+                @include transition.ease($duration:100ms, $delay:200ms, $property:(color));
+
+                &:after {
+                    width: 100%;
+                    height: calc(100% + 3px);
+                    // transform-origin: bottom left;
+                    // transform: scaleX(1);
+                    @include color.bg(accent);
+                    //transition: ease-in-out 200ms width, ease-in-out 200ms 200ms height, 300ms 0ms background-color;
+                    @include transition.multi( ((ease-in-out 200ms width), (ease-in-out 100ms 200ms height), (ease-in-out 300ms 0ms background-color)) )
+                }
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                width: 0px;
+                height: 3px;
+                z-index: -1;
+                @include space.inset($b:-xxs, $l:zero);    
+                //@include transition.ease($duration:200ms, $delay:0ms, $property:(width));
+                // transition: ease-in-out 200ms height, ease-in-out 200ms 200ms width, 300ms 0ms background-color;
+                @include transition.multi( ((ease-in-out 100ms height), (ease-in-out 200ms 200ms width), (300ms 0ms background-color)) );
+
+                @include color.bg(accent);
+                // transform-origin: bottom right;
+                // transform: scaleX(0);
+            
+            }
+
+
         }
-        a:hover {
-            border-bottom: 2px solid color.get(accent);
-        }
+
     }
 }
 

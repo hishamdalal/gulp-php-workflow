@@ -1,4 +1,5 @@
-@use '../lib/colors/mixin' as color;
+@use '../lib/colors' as color;
+@use '../lib/spacing/mixin' as space;
 
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
@@ -6,8 +7,24 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
     text-decoration: none;
+    cursor: pointer;
+    @include color.fg(primary);
 
     &:hover {
-        @include color.fg(primary);
+        @include color.fg(accent);
+    }
+}
+
+.btn {
+    cursor: pointer;
+    @include space.padding($h:md, $v:xs);
+    border: 1px solid color.get(primary-dark);
+
+    &:hover {
+        box-shadow: inset 0 0 3px  color.get(dark);;
+        @include color.bg(light);
+    }
+    &:active {
+        box-shadow: inset 0 0 6px  color.get(dark);;
     }
 }

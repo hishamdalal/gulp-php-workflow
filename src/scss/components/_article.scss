@@ -28,20 +28,15 @@
         justify-content: space-between;
 
         p:first-child {
-            @include space.margin($t:none);
+            @include space.margin($t:zero);
         }
     }
 
     .read-more {
         grid-area: link;
-        border: 1px solid color.get(primary);
         display: block;
         @include space.padding($h:md, $v:xs);
         // @include space.margin($t:md);
         align-self: self-end;
-
-        &:hover {
-            @include color.bg(light);
-        }
     }
 }

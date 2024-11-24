@@ -1,6 +1,7 @@
 @use '../lib/spacing' as space;
 @use '../lib/colors' as color;
 @use '../lib/breakpoints' as breakpoint;
+@use '../lib/animation/keyframe';
 
 main {
     display: grid;
@@ -18,11 +19,14 @@ main {
         @include space.margin($b: lg);
         // @include space.padding($custom: 6rem 1rem);
         @include space.padding($v:xxl, $h:xxl);
+        z-index: -2;
 
         h1 {
             font-weight: 900;
             text-transform: uppercase;
-            @include space.padding($b: lg)
+            @include space.padding($b: lg);
+            @include keyframe.animate(fadeIn, ease-in-out, 400ms);
+            
         }
 
         p {

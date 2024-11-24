@@ -1,6 +1,8 @@
 @use './vendors/normalize';
 @use './lib/typography';
-@use './components/global';
+@use './lib/image';
+@use './lib/animation';
+@use './init/global';
 @use './components/nav';
 @use './components/side';
 @use './components/article';

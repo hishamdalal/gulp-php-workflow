@@ -1,0 +1,43 @@
+@use "sass:meta";
+
+
+// @mixin keyframes($name) {
+//     @keyframes #{$name} {
+//         @content;
+//     }
+// }
+
+// animation-name: bounce;
+// animation-duration: 4s; /* or: Xms */
+// animation-iteration-count: 10; /* infinite */
+// animation-direction: alternate; /* or: normal */
+// animation-timing-function: ease-out; /* or: ease, ease-in, ease-in-out, linear, cubic-bezier(x1, y1, x2, y2) */
+// animation-fill-mode: forwards; /* or: backwards, both, none */
+// animation-delay: 2s; /* or: Xms */
+
+@mixin animate($name:fadeIn, $function:ease, $duration:300ms, $delay:0ms, $count:1, $mode:normal) {
+    animation: #{$name} #{$function} #{$duration} #{$delay} #{$count} #{$mode};
+}
+
+@mixin animate2($name:fadeIn, $function:ease, $duration:300ms, $delay:0ms, $count:1, $mode:normal) {
+    animation-name: #{$name};
+    animation-timing-function: #{$function};
+    animation-duration: #{$duration};
+    animation-delay: #{$delay};
+    animation-iteration-count: #{$count};
+    animation-fill-mode: #{$mode};
+    // animation-direction: normal;
+    //animation-play-state: running;
+    //animation-timeline: auto;
+    //animation-range-start: normal;
+}
+
+//* @include animation_args(fadeIn, $duration:3s, $iteration-count:infinite);
+
+@mixin animate3($name, $args:()) {
+    animation-name: #{$name};
+
+    @each $k, $v in $args {
+        animation-#{$k}: #{$v};
+    }
+}

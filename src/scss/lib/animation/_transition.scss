@@ -1,0 +1,52 @@
+
+// Transition terms order:
+// transition: <property> <duration> <timing-function> <delay>;
+
+/* Private mixin */
+@mixin _transition($function:ease-in-out, $duration:300ms, $delay:0ms, $property:all){
+	transition-property: $property;
+	transition-timing-function: $function;
+	transition-duration: $duration;
+	transition-delay: $delay;
+}
+/*------------------------------------------------------------*/
+/*
+? How to use:
+  @include transition(ease-in, .5s, .1s, (color, border-color))
+*/
+@mixin transition($function:ease-in-out, $duration:300ms, $delay:0ms,  $property:all) {
+	
+	@include _transition($function, $duration, $delay, $property);
+
+	@content;
+}
+/*------------------------------------------------------------*/
+@mixin ease($function:in-out, $duration:300ms, $delay:0ms, $property:all) {
+	
+	$function: ease-#{$function};
+
+	@include _transition($function, $duration, $delay, $property);
+
+	@content;
+}
+/*------------------------------------------------------------*/
+@mixin on($action:hover, $function:ease-in-out, $duration:300ms, $delay:0ms, $property:all) {
+	
+	@include _transition($function, $duration, $delay, $property);
+
+	&:#{$action} {
+		@content;
+	}
+}
+/*------------------------------------------------------------*/
+@mixin hover($function:ease-in-out, $duration:300ms, $delay:0ms, $property:all) {
+	
+	@include on(hover, $function, $duration, $delay, $property){
+		@content;
+	}
+}
+/*------------------------------------------------------------*/
+@mixin multi($args) {
+	transition: #{$args};
+}
+/*------------------------------------------------------------*/
