@@ -1,7 +1,13 @@
 @use './function';
 
 @mixin _get($prop, $name) {
+    
     #{$prop}: function.get($name);
+    
+    @if $prop == 'color' or $prop == 'background-color' {
+        $var: --color-#{$name};
+        #{$prop}: var(#{$var});
+    }
 }
 
 @mixin fg($name) {

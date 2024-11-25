@@ -1,0 +1,44 @@
+$settings:(
+    // Invert colors on dark theme
+    invert_colors_on_dark : True,
+    sub: (hi: 101)
+);
+
+$colors: (
+    primary: #08A59C,
+    primary-light: #29bab2,
+    primary-dark: #028d85,
+    secondary: #599afe,
+    secondary-1: #00bcd4,
+    secondary-2: #599afe,
+    accent: #a50837,
+    dark: #242122,
+    dark-1: #333333,
+    dark-2: #3e3e3e,
+    dark-3: #444444,
+    light: #dde4e4,
+    light-1: #efefef,
+    light-2: #fafafa,
+    light-3: #ffffff,
+    transparency: #ffffff00,
+);
+
+
+$dark-colors: (
+    primary: #f75a63,
+    primary-light: #d6454d,
+    primary-dark: #fd727a,
+    secondary: #a66501,
+    secondary-1: #ff432b,
+    secondary-2: #a66501,
+    accent: #5af7c8,
+    dark: #dbdedd,
+    dark-1: #ccc,
+    dark-2: #c1c1c1,
+    dark-3: #bbb,
+    light: #221b1b,
+    light-1: #101010,
+    light-2: #050505,
+    light-3: #000,
+    transparency: transparent,
+);

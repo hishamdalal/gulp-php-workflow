@@ -46,6 +46,8 @@
 	}
 }
 /*------------------------------------------------------------*/
+//? How to use:
+// @include transition.multi( ((ease-in-out 200ms width), (ease-in-out 100ms 200ms height)) );
 @mixin multi($args) {
 	transition: #{$args};
 }

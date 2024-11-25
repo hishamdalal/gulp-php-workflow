@@ -19,7 +19,7 @@ a {
 .btn {
     cursor: pointer;
     @include space.padding($h:md, $v:xs);
-    border: 1px solid color.get(dark);
+    border: 1px solid color.get(primary);
     @include trans.ease($duration:100ms, $property:(color, background-color));
 
     &:hover, &:active {

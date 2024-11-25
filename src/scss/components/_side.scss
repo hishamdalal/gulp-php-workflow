@@ -3,13 +3,9 @@
 @use '../lib/breakpoints' as breakpoint;
 
 aside {
-    @include space.padding($t:md, $start:lg);
+    @include space.padding($t:md, $h:lg);
     @include space.margin($b:lg);
-
-    @include breakpoint.less-than(lg) {
-        @include space.margin($end:lg);
-    }
-    
+   
     .title {
         font-weight: 700;
         border-bottom: 2px solid color.get(light);

@@ -1,6 +1,8 @@
 @use "sass:map";
 @use '../../vars';
 
+//? How to use:
+// function.get_one(sm);
 @function get_one($size) {
     @if $size == 0 {
         @return 0rem;
@@ -14,7 +16,8 @@
     }
 }
 
-
+//? How to use:
+// function.get(sm, lg);
 @function get($vertical_size:'', $horizontal_size:'') {
     $space: 0;
 

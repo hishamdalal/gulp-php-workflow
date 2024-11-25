@@ -1,0 +1,30 @@
+@use "sass:color";
+// @use "sass:map";
+@use '../lib/helper/maps'; 
+@use '../vars/colors' as vars;
+
+:root {
+    color-scheme: light dark;
+}
+
+:root {
+    @media (prefers-color-scheme: light) {
+        @each $name, $value in vars.$colors {
+            --color-#{"" + $name + ""}: #{$value};
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        //@warn maps.get(vars.$settings, not_exist_item);
+        @if maps.get(vars.$settings, invert_colors_on_dark) == True {
+            @each $name, $value in vars.$colors {
+                --color-#{"" + $name + ""}: #{color.invert($value)};
+            }
+        }
+        @else {
+            @each $name, $value in vars.$dark_colors {
+                --color-#{"" + $name + ""}: #{$value};
+            }
+        }
+    }
+}

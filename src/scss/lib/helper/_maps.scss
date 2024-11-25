@@ -3,6 +3,16 @@
 @use "sass:meta";
 
 /*------------------------------------------------------------*/
+@function get($map, $args) {
+	@if map.has-key($map, $args) {
+		@return map.get($map, $args);
+	}
+	@else {
+        @warn "Map item `#{$args}` is not exist";
+        @return initial;
+    }
+}
+/*------------------------------------------------------------*/
 @function append($map, $key, $value) {
 	$new: ($key: $value);
 	@return map-merge($map, $new);
