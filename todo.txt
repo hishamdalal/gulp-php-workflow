@@ -1,4 +1,4 @@
 (js, scss) Add new component: Hamburger menu for small screens.
-(js, scss) Add new component: Dark / Light style switch.
+(js, scss) Add new component: Dark / Light style switch. [DONE]
 (js, scss) Add new component: Switch input.
 (js, scss) Add new component: Group buttons.

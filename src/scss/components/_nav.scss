@@ -9,7 +9,7 @@
     
     nav {
         display: grid;
-        grid-template-columns: 1fr 6fr;
+        grid-template-columns: 1fr 5.5fr 2.5fr 3fr;
         @include space.padding($h:lg, $v:zero);
     }
     .logo {
@@ -73,6 +73,51 @@
 
         }
 
+    }
+
+    .tools {
+        list-style: none;
+        display: flex;
+        @include space.margin($all:zero);
+        @include space.padding($v:xs, $h:sm);
+        @include space.gap($h:md);
+
+        .search-form {
+            display: flex;
+            @include space.gap($h:xxs);
+
+            &, * {
+                @include space.margin($all:zero);
+                min-height: 100%;
+            }
+        }
+        .search-input {
+            border: none;
+            @include space.padding($custom:.2rem);
+        }
+        .search-icon {
+            width: space.get(lg);
+            @include color.bg(dark);
+        }
+    }
+    
+    .light-dark-switch {
+        display: grid;
+        grid-auto-flow: column;
+        @include space.gap($h:sm);
+        border-radius: 1.5rem;
+        border: 1px solid white;
+        @include space.padding($v:zero, $h:md);
+        min-height: 100%;
+        align-items: center;
+        line-height: .7;
+        input {display: none;}
+        label {
+            cursor: pointer;
+        }
+        
+        .feather-moon:hover {stroke: #000;}
+        .feather-sun:hover {stroke: #fff;}
     }
 }
 
