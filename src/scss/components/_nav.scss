@@ -2,6 +2,7 @@
 // @use '../lib/spacing/function' as space_function;
 @use '../lib/spacing' as space;
 @use '../lib/animation/transition';
+@use '../lib/breakpoints' as breakpoint;
 
 #main-header {
     position: fixed;
@@ -9,8 +10,14 @@
     
     nav {
         display: grid;
-        grid-template-columns: 1fr 5.5fr 2.5fr 3fr;
+        justify-content: space-between;
+        grid-template-columns: 3fr 350px 2fr;
         @include space.padding($h:lg, $v:zero);
+        
+        @include breakpoint.more-than(lg) {
+            grid-template-columns: 1fr 8fr 3fr;
+        }
+        //@include color.bg(primary-light);
     }
     .logo {
         display: grid;
@@ -18,14 +25,31 @@
         cursor: pointer;
         font-weight: 700;
     }
-    .items {
-        list-style: none;
+    .menu {
         display: grid;
         grid-auto-flow: column;
-        grid-auto-columns: min-content;
-        margin: 0;
-        @include space.gap(xs);
 
+        justify-content: space-between;
+        grid-template-columns: 1fr   8fr 3fr;
+        
+
+        @include breakpoint.more-than(lg) {
+            grid-template-columns: 8fr 1fr 0px;
+        }
+    }
+    .items {
+        list-style: none;
+        margin: 0;
+        grid-auto-flow: column;
+        grid-auto-columns: min-content;
+        @include space.gap(xs);
+        position: relative;
+        display: none;
+        justify-items: stretch;
+
+        @include breakpoint.more-than(lg) {
+            display: grid;
+        }      
 
         a {
             display: block;
@@ -36,22 +60,6 @@
             // border-bottom: 2px solid color.get(transparency);
             //@include animate.ease($property:(border, color));
             // transition: ease-in-out 1s 0 all;
-            @include transition.hover($property:(border, background-color)) {
-                //border-bottom: 2px solid color.get(accent);
-
-                @include color.fg(light);
-                @include transition.ease($duration:100ms, $delay:200ms, $property:(color));
-
-                &:after {
-                    width: 100%;
-                    height: calc(100% + 3px);
-                    // transform-origin: bottom left;
-                    // transform: scaleX(1);
-                    @include color.bg(accent);
-                    //transition: ease-in-out 200ms width, ease-in-out 200ms 200ms height, 300ms 0ms background-color;
-                    @include transition.multi( ((ease-in-out 200ms width), (ease-in-out 100ms 200ms height), (ease-in-out 300ms 0ms background-color)) )
-                }
-            }
 
             &:after {
                 content: '';
@@ -67,14 +75,36 @@
                 @include color.bg(accent);
                 // transform-origin: bottom right;
                 // transform: scaleX(0);
-            
             }
 
+            @include transition.hover($property:(border, background-color)) {
+                //border-bottom: 2px solid color.get(accent);
+                @include color.fg(light);
+                @include transition.ease($duration:100ms, $delay:200ms, $property:(color));
 
+                &:after {
+                    width: 100%;
+                    height: calc(100% + 3px);
+                    // transform-origin: bottom left;
+                    // transform: scaleX(1);
+                    @include color.bg(accent);
+                    //transition: ease-in-out 200ms width, ease-in-out 200ms 200ms height, 300ms 0ms background-color;
+                    @include transition.multi( ((ease-in-out 200ms width), (ease-in-out 100ms 200ms height), (ease-in-out 300ms 0ms background-color)) )
+                }
+            }
         }
 
     }
-
+    .nav-toggle {
+        @include breakpoint.less-than(xl) {
+            &:after {
+                content: '';
+                width: space.get(lg);
+                aspect-ratio: 1;
+                background-color: #000;
+            }
+        }        
+    }
     .tools {
         list-style: none;
         display: flex;
@@ -84,8 +114,7 @@
 
         .search-form {
             display: flex;
-            @include space.gap($h:xxs);
-
+            
             &, * {
                 @include space.margin($all:zero);
                 min-height: 100%;
@@ -93,11 +122,16 @@
         }
         .search-input {
             border: none;
-            @include space.padding($custom:.2rem);
+            border-radius:  1rem 0 0 1rem;
+            width: 15ch;
+            //@include space.padding($custom:.2rem);
+            @include space.padding($h:sm, $v:xxs);
         }
         .search-icon {
             width: space.get(lg);
             @include color.bg(dark);
+            border-radius:  0 1rem  1rem 0;
+            cursor: pointer;
         }
     }
     
@@ -115,7 +149,7 @@
         label {
             cursor: pointer;
         }
-        
+        label:hover {color: #fff;}
         .feather-moon:hover {stroke: #000;}
         .feather-sun:hover {stroke: #fff;}
     }

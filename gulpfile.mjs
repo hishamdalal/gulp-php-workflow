@@ -35,7 +35,11 @@ function php() {
 function scss() {
     return src('src/scss/bundle.scss')
         .pipe(sourcemaps.init())
-        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(sass({
+            outputStyle: 'compressed',
+            // https://github.com/twbs/bootstrap/issues/40621#issuecomment-2470300522
+            silenceDeprecations: ['legacy-js-api', 'mixed-decls', 'color-functions', 'global-builtin', 'import'],
+        }).on('error', sass.logError))
         .pipe(postcss([cssnano()]))
         .pipe(sourcemaps.write())
         .pipe(dest('dist/assets', { sourceMaps: '.' }))
