@@ -17,7 +17,7 @@
         @include breakpoint.more-than(lg) {
             grid-template-columns: 1fr 8fr 3fr;
         }
-        //@include color.bg(primary-light);
+        @include color.bg(primary-light);
     }
     .logo {
         display: grid;
@@ -28,9 +28,9 @@
     .menu {
         display: grid;
         grid-auto-flow: column;
-
+        min-height: 38px;
         justify-content: space-between;
-        grid-template-columns: 1fr   8fr 3fr;
+        grid-template-columns: 1fr 8fr 3fr;
         
 
         @include breakpoint.more-than(lg) {
