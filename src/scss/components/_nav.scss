@@ -11,13 +11,17 @@
     nav {
         display: grid;
         justify-content: space-between;
-        grid-template-columns: 3fr 350px 2fr;
-        @include space.padding($h:lg, $v:zero);
-        
-        @include breakpoint.more-than(lg) {
-            grid-template-columns: 1fr 8fr 3fr;
-        }
+        //grid-template-columns: 3fr 350px 2fr;
+        grid-template-columns: 200px auto;
+        height: 38px;
         @include color.bg(primary-light);
+        @include space.padding($h:lg, $v:zero);
+        @include breakpoint.more-than(xxs) {
+            @include space.padding($h:xl);
+        }
+        @include breakpoint.more-than(xs) {
+            @include space.padding($h:xxl);
+        }
     }
     .logo {
         display: grid;
@@ -28,13 +32,11 @@
     .menu {
         display: grid;
         grid-auto-flow: column;
-        min-height: 38px;
-        justify-content: space-between;
-        grid-template-columns: 1fr 8fr 3fr;
-        
-
-        @include breakpoint.more-than(lg) {
-            grid-template-columns: 8fr 1fr 0px;
+        align-items: center;
+        grid-template-columns: 350px auto;
+        justify-content: flex-end;
+        @include breakpoint.more-than(md) {
+            grid-template-columns: 350px 350px;
         }
     }
     .items {
@@ -42,12 +44,12 @@
         margin: 0;
         grid-auto-flow: column;
         grid-auto-columns: min-content;
+        justify-items: stretch;
         @include space.gap(xs);
         position: relative;
         display: none;
-        justify-items: stretch;
 
-        @include breakpoint.more-than(lg) {
+        @include breakpoint.more-than(md) {
             display: grid;
         }      
 
@@ -96,9 +98,18 @@
 
     }
     .nav-toggle {
+        display: grid;
+        align-items: center;
+        position: relative;
+        
+        @include breakpoint.more-than(md) {
+            display: none;
+        }
+
         @include breakpoint.less-than(xl) {
             &:after {
                 content: '';
+                display: block;
                 width: space.get(lg);
                 aspect-ratio: 1;
                 background-color: #000;

@@ -43,7 +43,6 @@ $url = full_url( $_SERVER );
                 </ul>
                 <div class="nav-toggle"></div>
             </div>
-            <div class="space"></div>
         </nav>
     </header>
 
