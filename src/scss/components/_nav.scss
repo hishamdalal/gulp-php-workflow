@@ -108,11 +108,10 @@
 
         @include breakpoint.less-than(xl) {
             &:after {
-                content: '';
+                font-family: fontello;
                 display: block;
                 width: space.get(lg);
                 aspect-ratio: 1;
-                background-color: #000;
             }
         }        
     }
@@ -151,18 +150,19 @@
         grid-auto-flow: column;
         @include space.gap($h:sm);
         border-radius: 1.5rem;
-        border: 1px solid white;
+        @include color.border($color:light-3);
         @include space.padding($v:zero, $h:md);
         min-height: 100%;
         align-items: center;
         line-height: .7;
+        @include color.fg(dark);
         input {display: none;}
-        label {
-            cursor: pointer;
+        label {cursor: pointer;}
+        label:hover {@include color.fg(light-3)}
+
+        label:has(input:checked) {
+            @include color.fg(light-3)
         }
-        label:hover {color: #fff;}
-        .feather-moon:hover {stroke: #000;}
-        .feather-sun:hover {stroke: #fff;}
     }
 }
 

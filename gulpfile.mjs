@@ -67,6 +67,11 @@ function img() {
             .pipe(browserSync.stream());
 }
 
+function icons() {
+    return src('src/vendors/fontello/**', { encoding: false })
+        .pipe(dest('dist/assets/vendors/fontello'))
+        .pipe(browserSync.stream());
+}
 // BrowserSync Tasks
 function browserSyncServe(cb) {
     browserSync.init({
@@ -94,6 +99,7 @@ function watchTask() {
     watch('src/scss/**/*.scss', series(scss, browserSyncReload))
     watch('src/js/**/*.js', series(js, browserSyncReload))
     watch('src/img/**', series(img, browserSyncReload))
+    watch('src/vendors/**', series(icons, browserSyncReload))
 }
 
 export default series(
@@ -101,6 +107,7 @@ export default series(
     scss,
     js,
     img,
+    icons,
     browserSyncServe,
     watchTask
 );
@@ -109,10 +116,12 @@ export const build = series(
     php,
     scss,
     js,
-    img
+    img,
+    icons
 );
 
 export const style = scss;
 export const script = js;
 export const file = php;
 export const image = img;
+export const fonticons = icons;

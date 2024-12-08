@@ -8,8 +8,8 @@
     inset-block-end: space.get(md);
     inset-inline-end: space.get(md);
     @include color.bg(primary);
-    @include color.fg(dark);
-    @include color.border(accent);
+    @include color.fg(dark-3);
+    @include color.border($color:dark-3);
     padding: 1rem 2rem;
     
     &>div { display: none}

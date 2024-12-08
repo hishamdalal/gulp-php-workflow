@@ -8,7 +8,7 @@
     grid-template-columns: 2fr 6fr;
     grid-template-rows: auto auto auto;
     @include space.gap($h:md, $v:sm);
-    border: 1px solid color.get(primary);
+    @include color.border($color:primary);
     @include space.padding($both:md);
     @include space.margin($h:lg, $b:lg);
     border-radius: .6rem;

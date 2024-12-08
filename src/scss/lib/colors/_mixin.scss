@@ -1,27 +1,29 @@
 @use './function';
 
-@mixin _get($prop, $name) {
+@mixin _get($prop, $color) {
     
-    #{$prop}: function.get($name);
+    #{$prop}: function.get($color);
     
     @if $prop == 'color' or $prop == 'background-color' {
-        $var: --color-#{$name};
+        $var: --color-#{$color};
         #{$prop}: var(#{$var});
     }
 }
 
-@mixin fg($name) {
-    @include _get(color, $name);
+@mixin fg($color) {
+    @include _get(color, $color);
 }
 
-@mixin bg($name) {
-    @include _get(background-color, $name);
+@mixin bg($color) {
+    @include _get(background-color, $color);
 }
 
-@mixin border($name) {
-    @include _get(border-color, $name);
+@mixin border($selector:border, $width:1px, $style:solid, $color) {
+    //@include _get(border-color, $color);
+    $color: function.get($color);
+    #{$selector}: #{$width} #{$style} #{$color};
 }
 
-@mixin custom($prop, $name) {
-    @include _get($prop, $name);
+@mixin custom($prop, $color) {
+    @include _get($prop, $color);
 }

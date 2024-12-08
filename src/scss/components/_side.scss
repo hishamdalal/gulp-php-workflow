@@ -8,21 +8,22 @@ aside {
    
     .title {
         font-weight: 700;
-        border-bottom: 2px solid color.get(light);
+        @include color.border($selector:border-bottom, $width:2px, $color:light);
     }
     .list {
         list-style: none;
         padding: 0;
-
+        
         a {
             display: block;
             @include space.padding($v:sm, $h:md);
             @include space.margin($v:xs);
-            border-inline-start: .2rem solid color.get(primary);
+            @include color.border($selector:border-inline-start, $width:.2rem, $color:primary);
             
             &:hover {
                 @include color.bg(light);
-                border-inline-start: .2rem solid color.get(accent);
+                @include color.border($selector:border-inline-start, $width:.2rem, $color:accent);
+                
             }
         }
     }
