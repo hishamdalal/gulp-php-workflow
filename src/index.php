@@ -26,7 +26,7 @@ $url = full_url( $_SERVER );
                     <li><a href="#">Contact</a></li>
                 </ul>
                 <ul class="tools">
-                    <li><form class="search-form"><input class="search-input" name="q" /><i class="search-icon"></i></form></li>
+                    <li><form class="search-form"><input class="search-input" name="q" /><i class="search-icon icon-search-1"></i></form></li>
                     <li>
                         <div class="light-dark-switch">
                             <label class="icon-cog">  <input type="radio" name="color-scheme" id="color-scheme-auto"  value="auto" checked></label>

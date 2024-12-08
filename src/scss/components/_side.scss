@@ -3,12 +3,12 @@
 @use '../lib/breakpoints' as breakpoint;
 
 aside {
-    @include space.padding($t:md, $h:lg);
+    @include space.padding($t:xxl, $h:lg);
     @include space.margin($b:lg);
    
     .title {
         font-weight: 700;
-        @include color.border($selector:border-bottom, $width:2px, $color:light);
+        @include color.border($selector:border-bottom, $width:2px, $color:accent);
     }
     .list {
         list-style: none;

@@ -139,9 +139,14 @@
         }
         .search-icon {
             width: space.get(lg);
-            @include color.bg(dark);
             border-radius:  0 1rem  1rem 0;
+            @include color.border($color: dark-3);
             cursor: pointer;
+            @include color.bg(dark-3);
+            @include color.fg(light-3);
+        }
+        [class^="icon-"]:before, [class*=" icon-"]:before {
+            font-weight: 100%;
         }
     }
     
@@ -150,12 +155,12 @@
         grid-auto-flow: column;
         @include space.gap($h:sm);
         border-radius: 1.5rem;
-        @include color.border($color:light-3);
+        @include color.border($color:light);
         @include space.padding($v:zero, $h:md);
         min-height: 100%;
         align-items: center;
         line-height: .7;
-        @include color.fg(dark);
+        @include color.fg(dark-3);
         input {display: none;}
         label {cursor: pointer;}
         label:hover {@include color.fg(light-3)}
