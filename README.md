@@ -6,6 +6,9 @@
 
 Rapid web development with php, scss and javascript.
 
+## screenshot
+![screenshot](https://raw.githubusercontent.com/hishamdalal/gulp-php-workflow/refs/heads/main/screenshot.png?raw=true)
+
 ## SCSS examples:
 ```scss
 @include color.fg(primary);
