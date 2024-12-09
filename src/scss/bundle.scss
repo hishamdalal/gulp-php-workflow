@@ -1,8 +1,6 @@
-@use './vendors/normalize';
+@use '../vendors/normalize';
 @use '../vendors/fontello/css/fontello.css';
 @use './lib/typography';
-// @use './lib/image';
-// @use './lib/animation';
 @use './init/global';
 @use './components/dark_light';
 @use './components/nav';

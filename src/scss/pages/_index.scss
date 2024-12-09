@@ -17,13 +17,13 @@ main {
         @include color.bg('primary-light');
         @include space.margin($b: lg);
         // @include space.padding($custom: 6rem 1rem);
-        @include space.padding($v:xxl, $h:lg);
+        @include space.padding($h:xs, $v:xxl);
 
-        @include breakpoint.more-than(xxs) {
-            @include space.padding($h:xl);
-        }
         @include breakpoint.more-than(xs) {
-            @include space.padding($h:xxl);
+            @include space.padding($h:md);
+        }
+        @include breakpoint.more-than(md) {
+            @include space.padding($h:xl);
         }
 
         h1 {

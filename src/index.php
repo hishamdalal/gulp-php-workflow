@@ -35,7 +35,16 @@ $url = full_url( $_SERVER );
                         </div>                    
                     </li>
                 </ul>
-                <div class="nav-toggle icon-menu"></div>
+                <label class="nav-toggle icon-menu">
+                    <input type="checkbox" id="toggle" />
+                    <div class="mobile-nav">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </label>
             </div>
         </nav>
     </header>
