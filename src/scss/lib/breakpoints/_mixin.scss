@@ -1,3 +1,4 @@
+@use "sass:meta";
 
 @use '../../vars';
 @use './function';
@@ -21,25 +22,75 @@
 /*------------------------------------------------------------*/
 @mixin more-than($key) {
 	$point: function.get($key, next);
-	$point: function.get($point);
-	@media (min-width:#{$point}) {
+	$width: function.get($point);
+	
+	@media (min-width:#{$width}) {
 		@content;
 	}
 }
 /*------------------------------------------------------------*/
 @mixin less-than($key) {
-	$point: function.get($key) - 0.2;
-	@media (max-width:#{$point}) {
+	//$point: function.get($key, prev);
+	$width: function.get($key) ;
+	@media (max-width:#{$width}) {
 		@content;
 	}
 }
 /*------------------------------------------------------------*/
 @mixin between($key1, $key2) {
-	$point1: function.get($key1);
-	$point2: function.get($key2);
+	$width-1: function.get($key1);
+	$width-2: function.get($key2);
 
-	@media (min-width:#{$point1}) and (max-width:#{$point2}) {
+	@media (min-width:#{$width-1}) and (max-width:#{$width-2}) {
 		@content;
+	}
+}
+/*------------------------------------------------------------*/
+@mixin equal-or-more($key) {
+	$width: function.get($key);
+
+	@media (min-width:#{$width}) {
+		@content;
+	}
+
+}
+/*------------------------------------------------------------*/
+@mixin equal-or-less($key) {
+	$width: function.get($key);
+
+	@media (max-width:#{$width}) {
+		@content;
+	}
+
+}
+/*------------------------------------------------------------*/
+//? How to use:
+// @include breakpoint.multi( $lg:(font-family:tahoma, color:red), $xl:(font-family:times, color:blue) ); 
+
+@mixin multi($args...) {
+
+	@each $point, $map in meta.keywords($args) {
+		@include more-than($point){
+			@each $k, $v in $map {
+				#{$k}: #{$v};
+			}
+		}
+		
+	}
+}
+/*------------------------------------------------------------*/
+@mixin custom-size($min_width:0, $max_width:0) {
+	
+	@if $min_width > 0 and $max_width > 0 {
+		@media (min-width: $min_width) and (max-width: $max_width) { @content; }
+	}
+	
+	@else if $max_width > 0 {
+		@media (max-width: $max_width) { @content; }
+	}
+	
+	@else if $min_width > 0 {
+		@media (min-width: $min_width) { @content; }
 	}
 }
 /*------------------------------------------------------------*/

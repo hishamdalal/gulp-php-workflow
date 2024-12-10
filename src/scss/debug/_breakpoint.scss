@@ -5,8 +5,8 @@
 
 .screen-size {
     position: fixed;
-    inset-block-end: space.get(md);
-    inset-inline-end: space.get(md);
+    inset-block-end: space.fget(md);
+    inset-inline-end: space.fget(md);
     @include color.bg(primary);
     @include color.fg(dark-3);
     @include color.border($color:dark-3);

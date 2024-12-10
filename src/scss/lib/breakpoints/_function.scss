@@ -5,7 +5,11 @@
 @use '../../vars';
 // @use '../helper/maps';
 
-
+/**
+ * @var $key: string (xxs, xs, sm, md, lg, xl, xxl)
+ * @var $type: string (val, next, prev) default: val
+ * @return: if $type=val will return rem value, if $type=(next or prev) will return next point rem value [see: var/_breakpoint.scss]
+ */
 /*------------------------------------------------------------*/
 @function get($key, $type:val) {
     @return map.get(vars.$breakpoints, $key, $type);

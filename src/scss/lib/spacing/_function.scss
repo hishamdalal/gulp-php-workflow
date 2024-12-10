@@ -17,8 +17,8 @@
 }
 
 //? How to use:
-// function.get(sm, lg);
-@function get($vertical_size:'', $horizontal_size:'') {
+// function.fget(sm, lg);
+@function fget($vertical_size:'', $horizontal_size:'') {
     $space: 0;
 
     @if $vertical_size != '' and $horizontal_size != '' {

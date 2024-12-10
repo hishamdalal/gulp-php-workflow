@@ -20,65 +20,77 @@
 // }
 
 /*------------------------------------------------------------*/
-@mixin _get($prop, $args...) {
+@mixin set-property($prop, $k, $v) {
+	// Custom
+	@if($k=='custom') {
+		#{$prop}: #{$v};
+	}
+	@else {
+		// for minus value
+		// @include space.margin($l:-sm);
+		$negative: string.index($v, "-");
+		@if $negative {
+			$len: string.length($v);
+			$v: string.slice($v, 2, $len);
+		}
+		
+		$v: function.get_one(#{$v});
 
-	@each $k, $v in meta.keywords($args) {
+		@if $negative {
+			$v: #{$v * -1};
+		}
+		
+		// Horizontal
+		@if($k=='h' or $k=='inline') {
+			#{$prop}-inline: #{$v};
+		}
 
-		// Custom
-		@if($k=='custom') {
+		// Vertical
+		@if($k=='v' or $k=='block') {
+			#{$prop}-block: #{$v};
+		}
+		// Top
+		@if($k=='t' or $k=='top') {
+			#{$prop}-block-start: #{$v};
+		}
+		// Bottom
+		@if($k=='b' or $k=='bottom') {
+			#{$prop}-block-end: #{$v};
+		}
+
+		// Right
+		@if($k=='r' or $k=='end') {
+			#{$prop}-inline-end: #{$v};
+		}
+
+		// Left
+		@if($k=='l' or $k=='start') {
+			#{$prop}-inline-start: #{$v};
+		}
+		// All
+		@if($k=='all' or $k=='both') {
 			#{$prop}: #{$v};
 		}
-		@else {
-			// for minus value
-			// @include space.margin($l:-sm);
-			$negative: string.index($v, "-");
-			@if $negative {
-				$len: string.length($v);
-				$v: string.slice($v, 2, $len);
-			}
-			
-			$v: function.get_one(#{$v});
-
-			@if $negative {
-				$v: #{$v * -1};
-			}
-			
-			// Horizontal
-			@if($k=='h' or $k=='inline') {
-				#{$prop}-inline: #{$v};
-			}
-
-			// Vertical
-			@if($k=='v' or $k=='block') {
-				#{$prop}-block: #{$v};
-			}
-			// Top
-			@if($k=='t' or $k=='top') {
-				#{$prop}-block-start: #{$v};
-			}
-			// Bottom
-			@if($k=='b' or $k=='bottom') {
-				#{$prop}-block-end: #{$v};
-			}
-
-			// Right
-			@if($k=='r' or $k=='end') {
-				#{$prop}-inline-end: #{$v};
-			}
-
-			// Left
-			@if($k=='l' or $k=='start') {
-				#{$prop}-inline-start: #{$v};
-			}
-			// All
-			@if($k=='all' or $k=='both') {
-				#{$prop}: #{$v};
-			}
-			// All
-			@if($k=='z' or $k=='zero') {
-				#{$prop}: 0rem;
-			}
+		// All
+		@if($k=='z' or $k=='zero') {
+			#{$prop}: 0rem;
 		}
+	}
+}
+/*------------------------------------------------------------*/
+// using meta
+@mixin get($prop, $args...) {
+
+	@each $k, $v in meta.keywords($args) {
+		@include set-property($prop, $k, $v);
+	}
+}
+// using pairs
+/*------------------------------------------------------------*/
+@mixin get-by-pairs($prop, $args) {
+
+	@each $k, $v in $args {
+		@include set-property($prop, $k, $v);
 	}
 }
 
@@ -91,16 +103,16 @@
 
 
 @mixin padding($args...) {
-	@include _get(padding, $args...);
+	@include get(padding, $args...);
 }
 /*------------------------------------------------------------*/
 @mixin margin($args...) {
-	@include _get(margin, $args...);
+	@include get(margin, $args...);
 }
 /*------------------------------------------------------------*/
 // When position is absolute you can set position values: top, bottom, left, right 
 @mixin inset($args...) {
-	@include _get(inset, $args...);
+	@include get(inset, $args...);
 }
 
 /*------------------------------------------------------------*/
@@ -118,7 +130,7 @@
 	@else {
 
 		@each $k, $v in meta.keywords($args) {
-			
+			// Convert space name to value { lg = 2rem }
 			$v: function.get_one(#{$v});
 					
 			@if($k=='h' or $k=='inline') {

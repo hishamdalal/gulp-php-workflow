@@ -1,0 +1,71 @@
+@use "sass:meta";
+
+@use './mixin' as space;
+@use './function' as space_func;
+@use '../breakpoints/mixin' as breakpoint;
+
+
+/*------------------------------------------------------------*/
+@mixin _get($type, $args...) {
+
+	@each $screen, $values in meta.keywords($args) {
+        @each $k, $v in $values {
+
+            @if $screen == 'all' {
+                @include space.get-by-pairs($type, $values);
+            }
+            @else {
+
+                @include breakpoint.more-than($screen){
+                    @include space.get-by-pairs($type, $values);
+                }
+            }
+        }
+	}
+    
+}
+/*------------------------------------------------------------*/
+//? how to use:
+// @include space.padding($md:(h:1.5), $lg:(h:2) );
+/*------------------------------------------------------------*/
+@mixin padding($args...) {
+	@include _get(padding, $args...);
+}
+/*------------------------------------------------------------*/
+@mixin margin($args...) {
+	@include _get(margin, $args...);
+}
+/*------------------------------------------------------------*/
+// When position is absolute you can set position values: top, bottom, left, right 
+@mixin inset($args...) {
+	@include _get(inset, $args...);
+}
+/*------------------------------------------------------------*/
+@mixin gap($args...) {
+	$len: list.length($args);
+
+    @each $screen, $values in meta.keywords($args) {
+		@include breakpoint.equal-or-more($screen){
+
+            @if $len == 1 {
+                $v: space_func.get_one(#{$args});
+                gap: #{$v};
+            }
+            @else {
+
+                @each $k, $v in meta.keywords($args) {
+                    // Convert space name to value { lg = 2rem }
+                    $v: space_func.get_one(#{$v});
+                            
+                    @if($k=='h' or $k=='inline') {
+                        column-gap: #{$v};
+                    }
+                    @else if($k=='v' or $k=='block') {
+                        row-gap: #{$v};
+                    }
+                }
+            }
+        }
+    }
+}
+/*------------------------------------------------------------*/

@@ -1,6 +1,7 @@
 @use '../lib/colors' as color;
 // @use '../lib/spacing/function' as space_function;
 @use '../lib/spacing' as space;
+@use '../lib/spacing/responsive' as r_space;
 @use '../lib/animation/transition';
 @use '../lib/breakpoints' as breakpoint;
 
@@ -16,20 +17,22 @@
         @include color.bg(primary-light);
         //grid-template-columns: 3fr 350px 2fr;
         grid-template-columns: auto auto;
-        @include breakpoint.more-than(xs) {
+        // @include breakpoint.more-than(xs) {
             
-        }
+        // }
 
-        @include space.padding($h:xs, $v:zero);
-
-        @include breakpoint.more-than(xs) {
-            grid-template-columns: 150px auto;
-            @include space.padding($h:md);
-        }
-        @include breakpoint.more-than(md) {
-            grid-template-columns: 200px auto;
-            @include space.padding($h:xl);
-        }
+        // @include space.padding($h:xs, $v:zero);
+        // @include space.padding($md:(h:1.5), $lg:(h:2) );
+        @include r_space.padding(
+            $all:(v:zero), 
+            $xs:(h:xs), 
+            $md:(h:md), 
+            $lg:(h:lg)
+        );
+        @include breakpoint.multi( 
+            $lg:(grid-template-columns:150px auto), 
+            $xl:(grid-template-columns:200px auto) 
+        ); 
     }
     .logo {
         display: grid;
@@ -102,45 +105,56 @@
                     @include transition.multi( ((ease-in-out 200ms width), (ease-in-out 100ms 200ms height), (ease-in-out 300ms 0ms background-color)) )
                 }
             }
+
         }
 
     }
 
     .tools {
         display: none;
-        @include breakpoint.more-than(xs) {
-            list-style: none;
+        
+        list-style: none;
+        @include space.margin($all:zero);
+        @include space.padding($v:xs, $h:sm);
+        @include space.gap($h:md);
+        .search-form {
             display: flex;
-            @include space.margin($all:zero);
-            @include space.padding($v:xs, $h:sm);
-            @include space.gap($h:md);
+            
+            &, * {
+                @include space.margin($all:zero);
+                min-height: 100%;
+            }
+        }
+        .search-input {
+            border: none;
+            border-radius:  1rem 0 0 1rem;
+            width: 15ch;
+            //@include space.padding($custom:.2rem);
+            @include space.padding($h:sm, $v:xxs);
+        }
+        .search-icon {
+            width: space.fget(lg);
+            border-radius:  0 1rem  1rem 0;
+            @include color.border($color: dark-3);
+            cursor: pointer;
+            @include color.bg(dark-3);
+            @include color.fg(light-3);
+        }
+        [class^="icon-"]:before, [class*=" icon-"]:before {
+            font-weight: 100%;
+        }
+        @include breakpoint.more-than(xs) {
+            display: flex;
+        }
 
-            .search-form {
-                display: flex;
-                
-                &, * {
-                    @include space.margin($all:zero);
-                    min-height: 100%;
-                }
-            }
-            .search-input {
-                border: none;
-                border-radius:  1rem 0 0 1rem;
-                width: 15ch;
-                //@include space.padding($custom:.2rem);
-                @include space.padding($h:sm, $v:xxs);
-            }
-            .search-icon {
-                width: space.get(lg);
-                border-radius:  0 1rem  1rem 0;
-                @include color.border($color: dark-3);
-                cursor: pointer;
-                @include color.bg(dark-3);
-                @include color.fg(light-3);
-            }
-            [class^="icon-"]:before, [class*=" icon-"]:before {
-                font-weight: 100%;
-            }
+        &:active {
+            position: absolute;
+            left: 320px;
+            top: 0px;
+            display: grid
+        ;
+            gap: 1rem;
+            z-index: 9;
         }
     }
     
@@ -169,17 +183,13 @@
         margin-left: auto;
         z-index: 2;
         // position: relative;
-        @include space.padding($both:xs);
+        @include space.padding($h:xs);
         
         @include breakpoint.more-than(md) {
             display: none;
         }
 
-        @include breakpoint.less-than(xl) {
-            &:after {
-                display: block;
-            }
-        }
+
         input {
             display: none;
         }
@@ -204,7 +214,7 @@
             position: absolute;
             z-index: -1;
             @include color.bg(accent);
-            @include space.padding($h:zero, $v:lg);
+            @include space.padding($h:zero, $v:xxl);
             @include space.inset($t:zero);
             inset-inline-end: -300px;
             min-width: 300px;
