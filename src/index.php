@@ -29,9 +29,9 @@ $url = full_url( $_SERVER );
                     <li><form class="search-form"><input class="search-input" name="q" /><i class="search-icon icon-search-1"></i></form></li>
                     <li>
                         <div class="light-dark-switch">
-                            <label class="icon-cog">  <input type="radio" name="color-scheme" id="color-scheme-auto"  value="auto" checked></label>
-                            <label class="icon-sun-1"><input type="radio" name="color-scheme" id="color-scheme-light"  value="light" ></label>
-                            <label class="icon-moon"> <input type="radio" name="color-scheme" id="color-scheme-dark" value="dark" ></label>
+                            <label title="Auto" class="icon-cog">  <input type="radio" name="color-scheme" id="color-scheme-auto"  value="auto" checked></label>
+                            <label title="Light" class="icon-sun-1"><input type="radio" name="color-scheme" id="color-scheme-light"  value="light" ></label>
+                            <label title="Dark" class="icon-moon"> <input type="radio" name="color-scheme" id="color-scheme-dark" value="dark" ></label>
                         </div>                    
                     </li>
                 </ul>

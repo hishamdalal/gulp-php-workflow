@@ -147,12 +147,11 @@
             display: flex;
         }
 
-        &:active {
+        &.active {
             position: absolute;
-            left: 320px;
-            top: 0px;
-            display: grid
-        ;
+            display: grid;
+            @include space.inset($r:xl, $top:xs);
+            height: 3.8rem;
             gap: 1rem;
             z-index: 9;
         }
@@ -215,6 +214,10 @@
             z-index: -1;
             @include color.bg(accent);
             @include space.padding($h:zero, $v:xxl);
+            @include breakpoint.multi( 
+                $xs:(padding-inline: space.get_one(xs)),
+                $sm:(padding-inline: space.get_one(sm))
+            ); 
             @include space.inset($t:zero);
             inset-inline-end: -300px;
             min-width: 300px;
@@ -233,7 +236,10 @@
             }
             a {
                 @include space.padding($h:md, $v:md);
+                @include color.fg(light);
+                
                 &:focus {
+                    @include color.fg(dark);
                     @include color.bg(light);
                 }
             }
