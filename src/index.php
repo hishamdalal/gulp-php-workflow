@@ -77,6 +77,7 @@ $url = full_url( $_SERVER );
     </main>
 
     <div class="screen-size">
+        <div class="xxxl">XXXL</div>
         <div class="xxl">XXL</div>
         <div class="xl">XL</div>
         <div class="lg">LG</div>

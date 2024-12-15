@@ -27,6 +27,13 @@
     #{$selector}: #{$width} #{$style} var(#{$color-var});
 }
 
+@mixin outline($width:1px, $style:solid, $color) {
+    $w: $width;
+    $s: $style;
+    $c: $color;
+    @include border($selector:outline, $width:$w, $style:$s, $color:$c);
+}
+
 @mixin custom($prop, $color) {
     @include _get($prop, $color);
 }

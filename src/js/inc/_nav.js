@@ -1,5 +1,4 @@
 exports.nav = function() {
-    
     const toggle_checkbox = document.querySelector("#toggle");
     const nav_tools = document.querySelector(".tools");
     
@@ -7,4 +6,7 @@ exports.nav = function() {
         e.target.checked ? nav_tools.classList.add('active') : nav_tools.classList.remove('active');
     });
     
+    //document.addEventListener('DOMContentLoaded', function() {
+    //    console.log("checked:", toggle_checkbox.checked);
+    //});
 }

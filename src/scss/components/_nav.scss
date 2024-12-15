@@ -11,23 +11,23 @@
     
     nav {
         display: grid;
-        height: 38px;
+        height: 40px;
 
         justify-content: space-between;
         @include color.bg(primary-light);
         //grid-template-columns: 3fr 350px 2fr;
         grid-template-columns: auto auto;
-        // @include breakpoint.more-than(xs) {
-            
-        // }
 
-        // @include space.padding($h:xs, $v:zero);
         // @include space.padding($md:(h:1.5), $lg:(h:2) );
         @include r_space.padding(
-            $all:(v:zero), 
-            $xs:(h:xs), 
+            $all:(v:xxs), 
+            $xxs:(h:xs),
+            $xs:(h:sm), 
             $md:(h:md), 
-            $lg:(h:lg)
+            $lg:(h:lg),
+            $xl:(h:xl),
+            $xxl:(h:xxl),
+            $xxxl:(h:xxxl)
         );
         @include breakpoint.multi( 
             $lg:(grid-template-columns:150px auto), 
@@ -117,6 +117,7 @@
         @include space.margin($all:zero);
         @include space.padding($v:xs, $h:sm);
         @include space.gap($h:md);
+        
         .search-form {
             display: flex;
             
@@ -129,10 +130,18 @@
             border: none;
             border-radius:  1rem 0 0 1rem;
             width: 15ch;
+            font-size: 0.93rem;
             //@include space.padding($custom:.2rem);
-            @include space.padding($h:sm, $v:xxs);
+            @include space.padding($h:sm, $v:zero);
+            
+            &:focus {
+                border: none;
+            }
         }
         .search-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: space.fget(lg);
             border-radius:  0 1rem  1rem 0;
             @include color.border($color: dark-3);
@@ -151,22 +160,27 @@
             position: absolute;
             display: grid;
             @include space.inset($r:xl, $top:xs);
-            height: 3.8rem;
+            //height: 3.8rem;
             gap: 1rem;
             z-index: 9;
+            
+            .light-dark-switch {
+                min-height: 27px;
+            }
         }
     }
     
     .light-dark-switch {
-        display: grid;
-        grid-auto-flow: column;
+        display: flex;
         @include space.gap($h:sm);
         border-radius: 1.5rem;
-        @include color.border($color:light);
-        @include space.padding($v:zero, $h:md);
+        @include color.outline($color:light);
+        @include space.padding($v:zero, $h:sm);
         min-height: 100%;
         align-items: center;
-        line-height: .7;
+        justify-content: center;
+        font-size: .93rem;
+        //line-height: .7;
         @include color.fg(dark-3);
         input {display: none;}
         label {cursor: pointer;}
@@ -179,10 +193,11 @@
 
     .nav-toggle {
         display: block;
-        margin-left: auto;
+        margin-inline-start: auto;
         z-index: 2;
+        cursor: pointer;
         // position: relative;
-        @include space.padding($h:xs);
+        @include space.padding($all:xs);
         
         @include breakpoint.more-than(md) {
             display: none;

@@ -1,4 +1,5 @@
 @use '../lib/spacing' as space;
+@use '../lib/spacing/responsive' as r_space;
 @use '../lib/colors' as color;
 @use '../lib/breakpoints' as breakpoint;
 @use '../lib/animation/keyframe';
@@ -17,14 +18,18 @@ main {
         @include color.bg('primary-light');
         @include space.margin($b: lg);
         // @include space.padding($custom: 6rem 1rem);
-        @include space.padding($h:xs, $v:xxl);
-
-        @include breakpoint.more-than(xs) {
-            @include space.padding($h:md);
-        }
-        @include breakpoint.more-than(md) {
-            @include space.padding($h:xl);
-        }
+        //@include space.padding($h:xs, $v:xxl);
+        @include space.padding($v:xxl);
+        @include r_space.padding(
+            $all:(v:xxs), 
+            $xxs:(h:xs),
+            $xs:(h:sm), 
+            $md:(h:md), 
+            $lg:(h:lg),
+            $xl:(h:xl),
+            $xxl:(h:xxl),
+            $xxxl:(h:xxxl)
+        );
 
         h1 {
             font-weight: 900;
