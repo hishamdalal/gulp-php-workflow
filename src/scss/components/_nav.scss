@@ -134,8 +134,8 @@
             //@include space.padding($custom:.2rem);
             @include space.padding($h:sm, $v:zero);
             
-            &:focus {
-                border: none;
+            &:focus-within {
+                outline: none;
             }
         }
         .search-icon {

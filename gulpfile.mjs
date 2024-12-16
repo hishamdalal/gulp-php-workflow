@@ -75,7 +75,7 @@ function icons() {
 // BrowserSync Tasks
 function browserSyncServe(cb) {
     browserSync.init({
-        proxy: "http://localhost/workflow/Gulp/gulp-php-workflow/dist/",
+        proxy: "http://localhost/workflow/Gulp/gulp5-php-workflow/dist/",
         port: 3000,
         // server: {
         //    baseDir: ['dist'],
