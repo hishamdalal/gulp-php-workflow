@@ -23,7 +23,9 @@ import terser from 'gulp-terser';
 import browser_sync from 'browser-sync';
 const browserSync = browser_sync.create();
 import sourcemaps from 'gulp-sourcemaps';
-import imagemin from 'gulp-imagemin';
+// import imagemin from 'gulp-imagemin';
+import imagemin from 'gulp-image';
+
 
 // npm install -D gulp browserify babelify vinyl-source-stream vinyl-buffer gulp-sass sass gulp-postcss cssnano gulp-terser browser-sync gulp-sourcemaps gulp-imagemin 
 
@@ -60,9 +62,7 @@ function js() {
 
 function img() {
         return src('src/img/*', { encoding: false })
-            .pipe(imagemin({
-                verbose: true
-              }))
+            .pipe(imagemin())
             .pipe(dest('dist/assets/img'))
             .pipe(browserSync.stream());
 }
@@ -75,7 +75,7 @@ function icons() {
 // BrowserSync Tasks
 function browserSyncServe(cb) {
     browserSync.init({
-        proxy: "http://localhost/workflow/Gulp/gulp5-php-workflow/dist/",
+        proxy: "http://localhost/workflow/Gulp/gulp-php-workflow/dist/",
         port: 3000,
         // server: {
         //    baseDir: ['dist'],

@@ -1,0 +1,99 @@
+@use '../../lib/colors' as color;
+@use '../../lib/spacing' as space;
+
+.switch {
+  display: none;
+  
+  // add default box-sizing for this scope
+  &,
+  &:after,
+  &:before,
+  & *,
+  & *:after,
+  & *:before,
+  & + .switch-btn {
+    box-sizing: border-box;
+    &::selection {
+      background: none;
+    }
+  }
+  
+  + .switch-btn {
+    outline: 0;
+    display: block;
+    width: 4em;
+    height: 2em;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    &:after,
+    &:before {
+      position: relative;
+      display: block;
+      content: "";
+      width: 50%;
+      height: 100%;
+    }
+    
+    &:after {
+      @include space.inset($start:zero);
+    }
+    
+    &:before {
+      display: none;
+    }
+  }
+  
+  &:checked + .switch-btn:after {
+    @include space.custom(inset-inline-start, $custom:50%);
+  }
+}
+
+// themes
+.switch-ios {
+  + .switch-btn {
+    @include color.bg(accent);
+    border-radius: 2em;
+    padding: 2px;
+    transition: all .4s ease;
+    //@include color.border($color:gray);
+    
+    &:after {
+      border-radius: 2em;
+      //background: #fbfbfb;
+      @include color.bg($color:light-2);
+      transition:
+        inset-inline-start .3s cubic-bezier(
+          0.175, 0.885, 0.320, 1.275
+        ),
+        padding .3s ease, margin .3s ease;
+      box-shadow:
+        0 0 0 1px rgba(0,0,0,.1),
+        0 4px 0 rgba(0,0,0,.08);
+    }
+    
+    &:hover:after {
+      will-change: padding;
+    }
+    
+    &:active {
+      box-shadow: inset 0 0 0 2em #e8eae9;
+      &:after {
+        padding-right: .8em;
+        @include space.padding(end, sm);
+      }
+    }
+  }
+  
+  &:checked + .switch-btn {
+    @include color.bg($color:primary);
+    
+    &:active {
+      box-shadow: none;
+      &:after {
+        margin-left: -.8em;
+        @include space.margin($start:-md);
+      }
+    }
+  }
+}

@@ -19,7 +19,8 @@ $colors: (
     light-1: #dbdbdb,
     light-2: #e7e7e7,
     light-3: #ffffff,
-    transparency: transparent,
+    'gray': #ccc,
+    transparent: transparent,
 );
 
 
@@ -39,5 +40,6 @@ $dark-colors: (
     light-1: #444,
     light-2: #333,
     light-3: #000,
-    transparency: transparent,
+    'gray': #ccc,
+    transparent: transparent,
 );

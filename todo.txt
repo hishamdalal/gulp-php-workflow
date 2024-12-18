@@ -1,5 +1,6 @@
 (js, scss) Add new component: Hamburger menu for small screens. [DONE]
 (js, scss) Add new component: Dark / Light style switch. [DONE]
-(js, scss) Add new component: Switch input.
+(js, scss) Add new component: Switch input. [DONE]
 (js, scss) Add new component: Group buttons.
 (scss)      Add now mixin -> library/spacing: auto space depends on current breakpoint [DONE]
+(scss)      Add helper classes like '.flat-list' '.btn'.

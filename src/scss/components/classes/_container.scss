@@ -1,0 +1,38 @@
+@use '../../lib/spacing' as space;
+@use '../../lib/spacing/responsive' as r_space;
+@use '../../lib/breakpoints' as breakpoint;
+@use '../../vars/breakpoints' as vars;
+
+
+.container {
+    @include space.padding(xxxs);
+}
+
+@each $key, $map in vars.$breakpoints {
+    $next-key: breakpoint.get($key, next);
+    //$width: breakpoint.get($next-key, val);
+    //@warn $width;
+    @if next-key != infinity and $next-key != zero {
+        
+        @include breakpoint.more-than($next-key){
+            .container-#{$key} { 
+                @include space.padding($key);
+            }
+        }
+    }
+}
+
+
+.r-container {
+            @include r_space.padding(
+            $all:(h:xxxs), 
+            $xxxs:(h:xxs),
+            $xxs:(h:xs),
+            $xs:(h:sm), 
+            $md:(h:md), 
+            $lg:(h:lg),
+            $xl:(h:xl),
+            $xxl:(h:xxl),
+            $xxxl:(h:xxxl)
+        );
+}

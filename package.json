@@ -17,6 +17,7 @@
     "browserify": "^17.0.1",
     "cssnano": "^7.0.6",
     "gulp": "^5.0.0",
+    "gulp-image": "^6.3.1",
     "gulp-imagemin": "^9.1.0",
     "gulp-postcss": "^10.0.0",
     "gulp-sass": "^6.0.0",
@@ -25,5 +26,8 @@
     "sass": "^1.83.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
+  },
+  "dependencies": {
+    "npm": "^11.0.0"
   }
 }

@@ -2,6 +2,12 @@
 @use '../lib/spacing/mixin' as space;
 @use '../lib/animation/transition' as trans;
 
+body {
+    @include color.bg(light-2);
+    @include color.fg(dark-2);
+}
+
+
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
@@ -13,24 +19,5 @@ a {
 
     &:hover {
         @include color.fg(accent);
-    }
-}
-
-.btn {
-    cursor: pointer;
-    @include space.padding($h:md, $v:xs);
-    @include color.border($color:primary);
-    @include trans.ease($duration:100ms, $property:(color, background-color));
-
-    &:hover, &:active {
-        @include color.fg(light);
-        @include color.bg(accent);
-    }
-
-    &:hover {
-        box-shadow: inset 0 0 3px  color.get(dark);;
-    }
-    &:active {
-        box-shadow: inset 0 0 6px  color.get(dark);;
     }
 }
