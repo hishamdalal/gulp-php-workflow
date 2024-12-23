@@ -19,15 +19,18 @@ const sass = gulpSass(dartSass);
 
 import postcss from 'gulp-postcss';
 import cssnano from 'cssnano';
+import litePreset from 'cssnano-preset-lite';
 import terser from 'gulp-terser';
 import browser_sync from 'browser-sync';
 const browserSync = browser_sync.create();
 import sourcemaps from 'gulp-sourcemaps';
 // import imagemin from 'gulp-imagemin';
 import imagemin from 'gulp-image';
+import autoprefixer from 'autoprefixer';
 
+const preset = litePreset({ colormin: false });
 
-// npm install -D gulp browserify babelify vinyl-source-stream vinyl-buffer gulp-sass sass gulp-postcss cssnano gulp-terser browser-sync gulp-sourcemaps gulp-imagemin 
+// npm install -D gulp browserify babelify vinyl-source-stream vinyl-buffer gulp-sass sass gulp-postcss cssnano gulp-terser browser-sync gulp-sourcemaps gulp-imagemin autoprefixer
 
 function php() {
     return src('src/**/*.php')
@@ -42,7 +45,7 @@ function scss() {
             // https://github.com/twbs/bootstrap/issues/40621#issuecomment-2470300522
             silenceDeprecations: ['legacy-js-api', 'mixed-decls', 'color-functions', 'global-builtin', 'import'],
         }).on('error', sass.logError))
-        .pipe(postcss([cssnano()]))
+        .pipe(postcss([cssnano({ preset, plugins: [autoprefixer] })]))
         .pipe(sourcemaps.write())
         .pipe(dest('dist/assets', { sourceMaps: '.' }))
         .pipe(browserSync.stream());
@@ -67,9 +70,9 @@ function img() {
             .pipe(browserSync.stream());
 }
 
-function icons() {
-    return src('src/vendors/fontello/**', { encoding: false })
-        .pipe(dest('dist/assets/vendors/fontello'))
+function vendors() {
+    return src('src/vendors/**', { encoding: false })
+        .pipe(dest('dist/assets/vendors'))
         .pipe(browserSync.stream());
 }
 // BrowserSync Tasks
@@ -99,7 +102,7 @@ function watchTask() {
     watch('src/scss/**/*.scss', series(scss, browserSyncReload))
     watch('src/js/**/*.js', series(js, browserSyncReload))
     watch('src/img/**', series(img, browserSyncReload))
-    watch('src/vendors/**', series(icons, browserSyncReload))
+    watch('src/vendors/**', series(vendors, browserSyncReload))
 }
 
 export default series(
@@ -107,7 +110,7 @@ export default series(
     scss,
     js,
     img,
-    icons,
+    vendors,
     browserSyncServe,
     watchTask
 );
@@ -117,11 +120,11 @@ export const build = series(
     scss,
     js,
     img,
-    icons
+    vendors
 );
 
 export const style = scss;
 export const script = js;
 export const file = php;
 export const image = img;
-export const fonticons = icons;
+export const vendor = vendors;

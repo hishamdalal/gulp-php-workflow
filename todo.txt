@@ -4,3 +4,4 @@
 (js, scss) Add new component: Group buttons.
 (scss)      Add now mixin -> library/spacing: auto space depends on current breakpoint [DONE]
 (scss)      Add helper classes like '.flat-list' '.btn'.
+(scss)      Modify component: Transparent colors. [DONE]

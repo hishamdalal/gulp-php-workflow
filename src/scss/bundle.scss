@@ -1,13 +1,14 @@
 @use '../vendors/normalize';
-@use '../vendors/fontello/css/fontello.css';
+@use '../vendors/fontello/css/fontello';
+@use '../vendors/realistic-ios-switch-pure-css/main';
 @use './lib/typography';
 @use './init/global';
-@use './components/classes';
 @use './components/dark_light';
+@use './components/classes';
 @use './components/nav';
 @use './components/side';
 @use './components/article';
-@use './components/form';
+// @use './components/form';
 @use './pages/index';
 @use './debug/breakpoint';
 

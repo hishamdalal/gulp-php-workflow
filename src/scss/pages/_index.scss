@@ -17,11 +17,12 @@ main {
         z-index: -2;
         @include color.bg('primary-light');
         @include space.margin($b: lg);
-        // @include space.padding($custom: 6rem 1rem);
-        //@include space.padding($h:xs, $v:xxl);
-        @include space.padding($v:xxl);
+        //@include space.padding($custom: 6rem 1rem);
+        //@include space.custom('padding-block-start', xxl);
+        
+        
         @include r_space.padding(
-            $all:(v:xxs), 
+            $all:(v:xxl), 
             $xxs:(h:xs),
             $xs:(h:sm), 
             $md:(h:md), 

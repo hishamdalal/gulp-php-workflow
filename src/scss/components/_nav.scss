@@ -8,15 +8,17 @@
 #main-header {
     position: fixed;
     width: 100%;
+    inset-block-start: 0;
     
     nav {
         display: grid;
         height: 40px;
 
         justify-content: space-between;
-        @include color.bg(primary-light);
+        @include color.bg(primary-light, .5);
         //grid-template-columns: 3fr 350px 2fr;
         grid-template-columns: auto auto;
+        box-shadow: 0px 0px 7px color.get(dark);
 
         // @include space.padding($md:(h:1.5), $lg:(h:2) );
         @include r_space.padding(
@@ -47,7 +49,7 @@
         justify-content: flex-end;
         grid-template-columns: auto auto;
         @include breakpoint.more-than(md) {
-            grid-template-columns: 350px 350px;
+            grid-template-columns: 400px 320px;
         }
     }
     .items {
@@ -90,19 +92,21 @@
                 // transform: scaleX(0);
             }
 
-            @include transition.hover($property:(border, background-color)) {
+            @include transition.ease($property:(border, background-color)) {
                 //border-bottom: 2px solid color.get(accent);
                 @include color.fg(light);
                 @include transition.ease($duration:100ms, $delay:200ms, $property:(color));
-
-                &:after {
-                    width: 100%;
-                    height: calc(100% + 3px);
-                    // transform-origin: bottom left;
-                    // transform: scaleX(1);
-                    @include color.bg(accent);
-                    //transition: ease-in-out 200ms width, ease-in-out 200ms 200ms height, 300ms 0ms background-color;
-                    @include transition.multi( ((ease-in-out 200ms width), (ease-in-out 100ms 200ms height), (ease-in-out 300ms 0ms background-color)) )
+                
+                &.active, &:hover {
+                    &:after{
+                        width: 100%;
+                        height: calc(100% + 3px);
+                        // transform-origin: bottom left;
+                        // transform: scaleX(1);
+                        @include color.bg(accent);
+                        //transition: ease-in-out 200ms width, ease-in-out 200ms 200ms height, 300ms 0ms background-color;
+                        @include transition.multi( ((ease-in-out 200ms width), (ease-in-out 100ms 200ms height), (ease-in-out 300ms 0ms background-color)) )
+                    }
                 }
             }
 
@@ -112,8 +116,9 @@
 
     .tools {
         display: none;
-        
         list-style: none;
+        height: 24px;
+        
         @include space.margin($all:zero);
         @include space.padding($v:xs, $h:sm);
         @include space.gap($h:md);
@@ -130,9 +135,12 @@
             border: none;
             border-radius:  1rem 0 0 1rem;
             width: 15ch;
-            font-size: 0.93rem;
+            //font-size: 0.9rem;
+            height: 24px;
             //@include space.padding($custom:.2rem);
             @include space.padding($h:sm, $v:zero);
+            @include color.bg(light-3);
+            @include color.outline($color:primary);
             
             &:focus-within {
                 outline: none;
@@ -144,10 +152,10 @@
             justify-content: center;
             width: space.fget(lg);
             border-radius:  0 1rem  1rem 0;
-            @include color.border($color: dark-3);
             cursor: pointer;
-            @include color.bg(dark-3);
+            @include color.bg(primary);
             @include color.fg(light-3);
+            @include color.outline($color: primary);
         }
         [class^="icon-"]:before, [class*=" icon-"]:before {
             font-weight: 100%;
@@ -174,7 +182,7 @@
         display: flex;
         @include space.gap($h:sm);
         border-radius: 1.5rem;
-        @include color.outline($color:light);
+        @include color.outline($color:dark);
         @include space.padding($v:zero, $h:sm);
         min-height: 100%;
         align-items: center;

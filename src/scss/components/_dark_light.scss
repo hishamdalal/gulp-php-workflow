@@ -1,47 +1,41 @@
-@use "sass:color";
+@use "sass:math";
 // @use "sass:map";
 @use '../lib/helper/maps'; 
 @use '../vars/colors' as vars;
+@use '../lib/colors/helper';
 
-// :root {
-//     color-scheme: light dark;
-// }
-:root {
-  @each $name, $value in vars.$colors {
-    --color-#{"" + $name + ""}: #{$value};
+@mixin root-colors($colors) {
+  @each $name, $value in $colors {
+    --color-#{"" + $name + ""}: #{helper.hexToRGBString($value)};
+    // @for $opacity from 1 through 5 {
+    //   --color-#{"" + $name + ""}-opacity-#{"" + $opacity + ""}: #{ rgba( $value, math.div($opacity, 10) ) };
+    // }
   }
+}
+
+:root {
+    color-scheme: light dark;
+    @include root-colors(vars.$dark-colors);
 }
 
 html:has(#color-scheme-light:checked) {
-  @each $name, $value in vars.$colors {
-    --color-#{"" + $name + ""}: #{$value};
-  }
+  @include root-colors(vars.$colors);
 }
-html:has(#color-scheme-dark:checked) {
-   --darkmode: 1; 
-   @each $name, $value in vars.$dark-colors {
-     --color-#{"" + $name + ""}: #{$value};
-  }
 
+html:has(#color-scheme-dark:checked) {
+  @include root-colors(vars.$dark-colors);
 }
+
 html:has(#color-scheme-auto:checked) {
   @media (prefers-color-scheme: light) {
-    @each $name, $value in vars.$colors {
-      --color-#{"" + $name + ""}: #{$value};
-    }
+    @include root-colors(vars.$colors);
   }
   @media (prefers-color-scheme: dark) {
-    @each $name, $value in vars.$dark-colors {
-      --color-#{"" + $name + ""}: #{$value};
-    }
+    @include root-colors(vars.$dark-colors);
   }
 }
 
 
-// @container root style(--darkmode: 0) {} 
-// @container root style(--darkmode: 1) {} 
-// @container root style(--darkmode: 2) {} 
-
-  body {
-    transition: ease-in-out 300ms all;
-  }
+body {
+  transition: ease-in-out 300ms all;
+}

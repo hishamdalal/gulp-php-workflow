@@ -4,7 +4,7 @@ $settings:(
 );
 
 $colors: (
-    primary: #08A59C,
+    primary: #08a69e,
     primary-light: #29bab2,
     primary-dark: #028d85,
     secondary: #599afe,
@@ -43,3 +43,29 @@ $dark-colors: (
     'gray': #ccc,
     transparent: transparent,
 );
+
+// $colors: (
+//     primary: light-dark(#08A59C, #f75a63),
+//     primary-light: light-dark(#29bab2, #d6454d),
+//     primary-dark: light-dark(#028d85, #fd727a),
+//     secondary: light-dark(#599afe, #a66501),
+//     secondary-1: light-dark(#00bcd4, #ff432b),
+//     secondary-2: light-dark(#599afe, #a66501),
+//     accent: light-dark(#a50837,#5af7c8),
+//     dark: light-dark(#242122,#d3d3d3),
+//     dark-1: light-dark(#444,#dbdbdb),
+//     dark-2: light-dark(#333,#e7e7e7),
+//     dark-3: light-dark(#000,#ffffff),
+//     light: light-dark(#d3d3d3,#242122),
+//     light-1: light-dark(#dbdbdb,#444),
+//     light-2: light-dark(#e7e7e7,#333),
+//     light-3: light-dark(#ffffff,#000),
+//     'gray': #ccc,
+//     transparent: transparent,
+// );
+
+:root {
+    @for $opacity from 0 through 9 {
+        --alpha-#{$opacity}: 0.#{$opacity};
+    }
+}

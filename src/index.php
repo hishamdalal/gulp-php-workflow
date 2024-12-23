@@ -21,7 +21,7 @@ $url = full_url( $_SERVER );
             <div class="logo">LOGO</div>
             <div class="menu">
                 <ul class="items">
-                    <li><a href="#">Home</a></li>
+                    <li><a class="active" href="#">Home</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
@@ -65,11 +65,14 @@ $url = full_url( $_SERVER );
                     <a class="btn read-more" href="#">Read more</a>
                 </div>
             </article>
-            <form class="r-container">
-                <input class="switch switch-ios" id="cb2" type="checkbox">
-                <label class="switch-btn" for="cb2"></label>
-                <span class="space-v-md">1</span>
-                <button class="btn" type="button">Button</button>
+            <form class="container-xl">
+
+                <label class="form-switch">
+                    <input type="checkbox">
+                    <i></i> label text 
+                </label>
+
+
             </form>
         </div>
         <aside>

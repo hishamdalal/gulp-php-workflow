@@ -143,7 +143,23 @@
 	}
 }
 /*------------------------------------------------------------*/
-@mixin custom($prop, $args...) {
-	@include get($prop, $args...);
+//? how to use:
+// @include space.custom('padding-block-start', xxl);
+
+@mixin custom($prop, $value) {
+	
+	$negative: string.index($value, "-");
+	@if $negative {
+		$len: string.length($v);
+		$value: string.slice($value, 2, $len);
+	}
+		
+	$value: function.get_one(#{$value});
+
+	@if $negative {
+		$value: #{$value * -1};
+	}
+	
+	#{$prop}: #{$value};
 }
 /*------------------------------------------------------------*/

@@ -1,9 +1,13 @@
 @use "sass:map";
 @use '../../vars';
 
-@function get($name) {
+@function get($name, $opacity:0) {
     @if map.has-key(vars.$colors, $name) {
-        @return map.get(vars.$colors, $name);
+        $color: map.get(vars.$colors, $name);
+        @if $opacity >0 {
+            $color: rgba($color, $opacity);
+        }
+        @return $color;
     }
     @else {
         @warn "Color #{$name} is not exist";

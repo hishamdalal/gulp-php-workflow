@@ -1,39 +1,53 @@
 @use './function';
+@use './helper';
 
-@mixin _get($prop, $color) {
+@mixin _get($prop, $color, $opacity:0) {
     
-    #{$prop}: function.get($color);
+    #{$prop}: function.get($color, $opacity);
     
     @if $prop == 'color' or $prop == 'background-color' {
         $var: --color-#{$color};
-        #{$prop}: var(#{$var});
+        @if $opacity>0 {
+            $opacity: ($opacity * 10);
+            $alpha: --alpha-#{$opacity};
+            #{$prop}: rgba( var(#{$var}), var(#{$alpha}) );
+        }
+        @else {
+            #{$prop}: rgb(var(#{$var}));
+        }
     }
 }
 
-@mixin fg($color) {
-    @include _get(color, $color);
+@mixin fg($color, $opacity:0) {
+    @include _get(color, $color, $opacity);
 }
 
-@mixin bg($color) {
-    @include _get(background-color, $color);
+@mixin bg($color, $opacity:0) {
+    @include _get(background-color, $color, $opacity);
 }
 
-@mixin border($selector:border, $width:1px, $style:solid, $color) {
-    //@include _get(border-color, $color);
-    $color-var: --color-#{$color};
-    $color: function.get($color);
+@mixin border($selector:border, $width:1px, $style:solid, $color:primary, $opacity:0) {
+    $color-var: rgb(var(--color-#{$color}));
+
+    @if $opacity>0 {
+        $opacity: ($opacity * 10);
+        $color-var: rgba( var(--color-#{$color}), var(--alpha-#{$opacity}) );
+    }
+    
+    $color: function.get($color, $opacity);
     
     #{$selector}: #{$width} #{$style} #{$color};
-    #{$selector}: #{$width} #{$style} var(#{$color-var});
+    #{$selector}: #{$width} #{$style} #{$color-var};
 }
 
-@mixin outline($width:1px, $style:solid, $color) {
+@mixin outline($width:1px, $style:solid, $color:primary, $opacity:0) {
     $w: $width;
     $s: $style;
     $c: $color;
-    @include border($selector:outline, $width:$w, $style:$s, $color:$c);
+    $o: $opacity;
+    @include border($selector:outline, $width:$w, $style:$s, $color:$c, $opacity:$o);
 }
 
-@mixin custom($prop, $color) {
-    @include _get($prop, $color);
+@mixin custom($prop, $color, $opacity:0) {
+    @include _get($prop, $color, $opacity);
 }

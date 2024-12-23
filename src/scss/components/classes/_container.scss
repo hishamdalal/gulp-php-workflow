@@ -12,9 +12,10 @@
     $next-key: breakpoint.get($key, next);
     //$width: breakpoint.get($next-key, val);
     //@warn $width;
-    @if next-key != infinity and $next-key != zero {
+    @if $next-key != infinity and $next-key != zero {
+        // @warn $key, $next-key;
         
-        @include breakpoint.more-than($next-key){
+        @include breakpoint.more-than($key){
             .container-#{$key} { 
                 @include space.padding($key);
             }
