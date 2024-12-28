@@ -33,13 +33,12 @@ $nav-height: 40px;
             $xxl:(h:xxl),
             $xxxl:(h:xxxl)
         );
-        @include breakpoint.more-than(lg) {
-            grid-template-columns:200px auto
-        }
-        //@include breakpoint.multi( 
-            //$lg:(grid-template-columns:200px auto), 
-            //$xl:(grid-template-columns:250px auto) 
-        //); 
+        
+        @include breakpoint.multi( 
+            $sm:(grid-template-columns:200px auto), 
+            $md:(grid-template-columns:200px auto),
+            $lg:(grid-template-columns:300px auto)
+        ); 
     }
     .logo {
         display: flex;
