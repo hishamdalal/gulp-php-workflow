@@ -24,7 +24,7 @@
     left: 0;
     width: 42px;
     height: 22px;
-    @include colors.bg(accent);
+    @include colors.bg(light-3);
     border-radius: 11px;
     transform: translate3d(2px, 2px, 0) scale3d(1, 1, 1);
     transition: all 0.25s linear;
@@ -36,7 +36,7 @@
     left: 0;
     width: 22px;
     height: 22px;
-    @include colors.bg(light-3);
+    @include colors.bg(primary-dark);
     border-radius: 11px;
     box-shadow: 0 2px 2px colors.get(dark-3, .2);
     transform: translate3d(2px, 2px, 0);
@@ -52,7 +52,7 @@
   
   .form-switch input { display: none; }
   
-  .form-switch input:checked + i { @include colors.bg(primary); }
+  .form-switch input:checked + i { @include colors.bg(primary-light); }
   
   .form-switch input:checked + i::before { transform: translate3d(18px, 2px, 0) scale3d(0, 0, 0); }
   

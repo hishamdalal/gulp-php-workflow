@@ -70,9 +70,9 @@ function img() {
             .pipe(browserSync.stream());
 }
 
-function vendors() {
-    return src('src/vendors/**', { encoding: false })
-        .pipe(dest('dist/assets/vendors'))
+function fonts() {
+    return src('src/vendors/fontello/font/**', { encoding: false })
+        .pipe(dest('dist/assets/vendors/fontello/font'))
         .pipe(browserSync.stream());
 }
 // BrowserSync Tasks
@@ -102,7 +102,8 @@ function watchTask() {
     watch('src/scss/**/*.scss', series(scss, browserSyncReload))
     watch('src/js/**/*.js', series(js, browserSyncReload))
     watch('src/img/**', series(img, browserSyncReload))
-    watch('src/vendors/**', series(vendors, browserSyncReload))
+    watch('src/vendors/**/*.scss', series(scss, browserSyncReload))
+    watch('src/vendors/**/*.js', series(js, browserSyncReload))
 }
 
 export default series(
@@ -110,7 +111,7 @@ export default series(
     scss,
     js,
     img,
-    vendors,
+    fonts,
     browserSyncServe,
     watchTask
 );
@@ -120,11 +121,11 @@ export const build = series(
     scss,
     js,
     img,
-    vendors
+    fonts
 );
 
 export const style = scss;
 export const script = js;
 export const file = php;
 export const image = img;
-export const vendor = vendors;
+export const font = fonts;

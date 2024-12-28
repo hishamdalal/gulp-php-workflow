@@ -22,7 +22,7 @@
 
         // @include space.padding($md:(h:1.5), $lg:(h:2) );
         @include r_space.padding(
-            $all:(v:xxs), 
+            //$all:(v:xxs), 
             $xxs:(h:xs),
             $xs:(h:sm), 
             $md:(h:md), 
@@ -43,6 +43,7 @@
         font-weight: 700;
     }
     .menu {
+        height: 100%;
         display: grid;
         grid-auto-flow: column;
         align-items: center;
@@ -58,20 +59,23 @@
         grid-auto-flow: column;
         grid-auto-columns: min-content;
         justify-items: stretch;
-        @include space.gap(xs);
+        //@include space.gap(xs);
         position: relative;
         display: none;
+        height: 100%;
 
         @include breakpoint.more-than(md) {
             display: grid;
         }      
 
         a {
-            display: block;
+            display: flex;
+            align-items: center;
             position: relative;
-            @include space.padding($h:md, $v:sm);
+            @include space.padding($h:md);
             @include color.fg(dark-3);
             z-index: 10;
+            height: 100%;
             // border-bottom: 2px solid color.get(transparency);
             //@include animate.ease($property:(border, color));
             // transition: ease-in-out 1s 0 all;
@@ -82,7 +86,7 @@
                 width: 0px;
                 height: 3px;
                 z-index: -1;
-                @include space.inset($b:-xxs, $l:zero);    
+                @include space.inset($b:zero, $l:zero);    
                 //@include transition.ease($duration:200ms, $delay:0ms, $property:(width));
                 // transition: ease-in-out 200ms height, ease-in-out 200ms 200ms width, 300ms 0ms background-color;
                 @include transition.multi( ((ease-in-out 100ms height), (ease-in-out 200ms 200ms width), (300ms 0ms background-color)) );
@@ -100,7 +104,8 @@
                 &.active, &:hover {
                     &:after{
                         width: 100%;
-                        height: calc(100% + 3px);
+                        //height: calc(100% + 3px);
+                        height: 100%;
                         // transform-origin: bottom left;
                         // transform: scaleX(1);
                         @include color.bg(accent);
@@ -182,14 +187,14 @@
         display: flex;
         @include space.gap($h:sm);
         border-radius: 1.5rem;
-        @include color.outline($color:dark);
+        @include color.outline($color:primary);
         @include space.padding($v:zero, $h:sm);
         min-height: 100%;
         align-items: center;
         justify-content: center;
         font-size: .93rem;
         //line-height: .7;
-        @include color.fg(dark-3);
+        @include color.fg(primary-dark);
         input {display: none;}
         label {cursor: pointer;}
         label:hover {@include color.fg(light-3)}
