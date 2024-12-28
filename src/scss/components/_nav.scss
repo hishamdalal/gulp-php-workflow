@@ -5,6 +5,8 @@
 @use '../lib/animation/transition';
 @use '../lib/breakpoints' as breakpoint;
 
+$nav-height: 40px;
+
 #main-header {
     position: fixed;
     width: 100%;
@@ -12,7 +14,7 @@
     
     nav {
         display: grid;
-        height: 40px;
+        height: #{$nav-height};
 
         justify-content: space-between;
         @include color.bg(primary-light, .5);
@@ -31,16 +33,28 @@
             $xxl:(h:xxl),
             $xxxl:(h:xxxl)
         );
-        @include breakpoint.multi( 
-            $lg:(grid-template-columns:150px auto), 
-            $xl:(grid-template-columns:200px auto) 
-        ); 
+        @include breakpoint.more-than(lg) {
+            grid-template-columns:200px auto
+        }
+        //@include breakpoint.multi( 
+            //$lg:(grid-template-columns:200px auto), 
+            //$xl:(grid-template-columns:250px auto) 
+        //); 
     }
     .logo {
-        display: grid;
+        display: flex;
+        align-items: center;
+        gap: space.get_one(sm);
+        position: relative;
+        height: #{$nav-height};
+        //@include space.padding($v:xxs);
         margin-block: auto;
         cursor: pointer;
         font-weight: 700;
+        &>img {
+            height: 90%;
+            width: auto;
+        }
     }
     .menu {
         height: 100%;

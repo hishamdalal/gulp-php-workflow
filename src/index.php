@@ -18,7 +18,9 @@ $url = full_url( $_SERVER );
 <body>
     <header id="main-header">
         <nav>
-            <div class="logo">LOGO</div>
+            <div class="logo">
+                <img src="assets/img/logo.png" /> Gulp PHP Workflow
+            </div>
             <div class="menu">
                 <ul class="items">
                     <li><a class="active" href="#">Home</a></li>
