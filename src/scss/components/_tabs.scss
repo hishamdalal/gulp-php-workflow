@@ -24,7 +24,7 @@
             position: relative;
             display: grid;
             align-items: center;
-            @include transition.ease();
+            @include transition.ease($property:(background-color, color));
             
             &:hover {
                 @include color.bg(primary-dark);

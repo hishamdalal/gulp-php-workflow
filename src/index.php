@@ -89,6 +89,11 @@ $url = full_url( $_SERVER );
                     </div>
                 </div>
 
+                <div class="group-btn mt-20">
+                    <button type="button">btn 1</button>
+                    <button type="button">btn 2</button>
+                </div>
+
             </form>
         </div>
         <aside>

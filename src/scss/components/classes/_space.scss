@@ -1,0 +1,19 @@
+@use 'sass:math';
+@use '../../vars/spacing';
+
+@for $i from 1 through spacing.$count {
+    $d: math.div($i, 10);
+    .mt-#{$i} { margin-block-start: #{$d}rem; }
+    .mb-#{$i} { margin-block-end: #{$d}rem; }
+    .ml-#{$i} { margin-inline-start: #{$d}rem; }
+    .mr-#{$i} { margin-inline-end: #{$d}rem; }
+    .mv-#{$i} { margin-block: #{$d}rem; }
+    .mh-#{$i} { margin-inline: #{$d}rem; }
+
+    .pt-#{$i} { padding-block-start: #{$d}rem; }
+    .pb-#{$i} { padding-block-end: #{$d}rem; }
+    .pl-#{$i} { padding-inline-start: #{$d}rem; }
+    .pr-#{$i} { padding-inline-end: #{$d}rem; }
+    .pv-#{$i} { padding-block: #{$d}rem; }
+    .ph-#{$i} { padding-inline: #{$d}rem; }
+}
