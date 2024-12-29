@@ -74,6 +74,20 @@ $url = full_url( $_SERVER );
                     <i></i> label text 
                 </label>
 
+                <div class="tabs-container horizontal">
+                    <ul class="tabs">
+                        <li class="tab active">Tab 1</li>
+                        <li class="tab">Tab 2</li>
+                        <li class="tab">Tab 3</li>
+                    </ul>
+                    <div class="contents">
+                        <div class="content active">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, non dolore delectus ipsum quia reprehenderit error natus amet maiores distinctio nisi eligendi velit pariatur tenetur nostrum necessitatibus sequi. Eum, nam?
+                        Atque, cum explicabo sint saepe sit doloribus eos deserunt obcaecati doloremque culpa tempora commodi sequi beatae nisi dolorem cumque illo officiis. Debitis laudantium perferendis natus quidem praesentium aperiam possimus officia.</div>
+
+                        <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel dolores quod consequuntur soluta ex odio, adipisci necessitatibus quia voluptatum. Commodi est suscipit assumenda sint repellat voluptates, vel voluptas itaque dolore.</div>
+                        <div class="content">Test</div>
+                    </div>
+                </div>
 
             </form>
         </div>
