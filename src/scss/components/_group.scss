@@ -1,0 +1,23 @@
+@use '../lib/colors' as color;
+
+.group-btn {
+    display: flex;
+
+    :first-child {
+        border-radius: .5rem 0 0 .5rem;
+    }
+    :last-child {
+        border-radius: 0 .5rem .5rem 0;
+    }
+
+    label:has(input:checked) {
+        @include color.bg(primary);
+        @include color.fg(light-3);
+    }
+    input {
+        display: none;
+    
+    }
+}
+
+

@@ -19,10 +19,12 @@
 }
 
 html:has(#color-scheme-light:checked) {
+  color-scheme: light;
   @include root-colors(vars.$colors);
 }
 
 html:has(#color-scheme-dark:checked) {
+  color-scheme: dark;
   @include root-colors(vars.$dark-colors);
 }
 

@@ -29,37 +29,4 @@
     //     box-shadow: inset 0 0 6px color.get(dark);
     // }
 
-    @each $color-name, $color-value in var.$colors {
-        //@warn $color-name, $color-value;
-
-        @if $color-name !=transparent {
-
-            // @if $color-name == gray {
-            //     $color-name: '#{$color-name}';
-            // }
-
-            &.btn-#{$color-name} {
-                @include color.bg($color-name);
-            }
-            &.btn-outline-#{$color-name} {
-                @include color.border($color:$color-name);
-            }
-
-            // todo: change hover behavior from settings
-            &.btn-hover\:#{$color-name}  {
-
-                &:hover,
-                &:active {
-                    @include color.bg($color-name);
-                }
-            }
-            &.btn-outline-hover\:#{$color-name}  {
-
-                &:hover,
-                &:active {
-                    @include color.border($color:$color-name);
-                }
-            }
-        }
-    }
 }

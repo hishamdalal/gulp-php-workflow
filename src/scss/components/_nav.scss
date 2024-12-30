@@ -11,11 +11,12 @@ $nav-height: 40px;
     position: fixed;
     width: 100%;
     inset-block-start: 0;
+    z-index: 9999999999;
     
     nav {
         display: grid;
         height: #{$nav-height};
-
+        
         justify-content: space-between;
         @include color.bg(primary-light, .5);
         //grid-template-columns: 3fr 350px 2fr;

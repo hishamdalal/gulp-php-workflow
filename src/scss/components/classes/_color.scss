@@ -1,0 +1,49 @@
+@use '../../lib/colors' as color;
+@use '../../vars/colors' as var;
+
+
+@each $color-name, $color-value in var.$colors {
+    //@warn $color-name, $color-value;
+
+    @if $color-name !=transparent {
+        
+        .fg-#{$color-name} {
+            @include color.fg($color-name);
+        }
+        .bg-#{$color-name} {
+            @include color.bg($color-name);
+        }
+        .border-#{$color-name} {
+            @include color.border($color:$color-name);
+        }
+        .outline-#{$color-name} {
+            @include color.outline($color:$color-name);
+        }
+
+        // todo: change hover behavior from settings
+        .fg-#{$color-name}\:hover  {
+            &:hover,
+            &:active {
+                @include color.fg($color-name);
+            }
+        }
+        .bg-#{$color-name}\:hover  {
+            &:hover,
+            &:active {
+                @include color.bg($color-name);
+            }
+        }
+        .border-#{$color-name}\:hover  {
+            &:hover,
+            &:active {
+                @include color.border($color:$color-name);
+            }
+        }
+        .outline-#{$color-name}\:hover  {
+            &:hover,
+            &:active {
+                @include color.outline($color:$color-name);
+            }
+        }
+    }
+}

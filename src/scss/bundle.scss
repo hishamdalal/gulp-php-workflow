@@ -1,3 +1,4 @@
+// @use '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @use '../vendors/normalize';
 @use '../vendors/fontello/css/fontello';
 @use '../vendors/realistic-ios-switch-pure-css/main';
@@ -8,7 +9,8 @@
 @use './components/nav';
 @use './components/side';
 @use './components/article';
-@use './components//tabs';
+@use './components/tabs';
+@use './components/group';
 // @use './components/form';
 @use './pages/index';
 @use './debug/breakpoint';
