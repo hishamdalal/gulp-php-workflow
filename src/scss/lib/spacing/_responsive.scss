@@ -3,6 +3,7 @@
 @use './mixin' as space;
 @use './function' as space_func;
 @use '../breakpoints/mixin' as breakpoint;
+@use '../../vars/breakpoints' as vars;
 
 
 /*------------------------------------------------------------*/
@@ -67,5 +68,75 @@
             }
         }
     }
+}
+/*------------------------------------------------------------*/
+$space-size: .5;
+@each $k, $v in vars.$breakpoints {
+    @include breakpoint.more-than($k) {
+      .rp {padding: calc(#{$space-size}rem + 0.5vw);}
+      .rp-h {padding-inline: calc(#{$space-size}rem + 0.5vw);}
+      .rp-l {padding-inline-start: calc(#{$space-size}rem + 0.5vw);}
+      .rp-e {padding-inline-end: calc(#{$space-size}rem + 0.5vw);}
+      .rp-v {padding-block: calc(#{$space-size}rem + 0.5vw);}
+      .rp-t {padding-block-start: calc(#{$space-size}rem + 0.5vw);}
+      .rp-b {padding-block-end: calc(#{$space-size}rem + 0.5vw);}
+      .rm {margin: calc(#{$space-size}rem + 0.5vw);}
+    }
+    $space-size: $space-size + .2;
+}
+/*------------------------------------------------------------*/
+@mixin _r_get($property, $position) {
+    $space-size: .5;
+    $prop: '';
+    @if $position == 'h' {
+        $prop: #{$property}-inline;
+    }
+    @if $position == 'l' {
+        $prop: #{$property}-inline-start;
+    }
+    @if $position == 'r' {
+        $prop: #{$property}-inline-end;
+    }
+
+    @if $position == 'v' {
+        $prop: #{$property}-block;
+    }
+    @if $position == 't' {
+        $prop: #{$property}-block-start;
+    }
+    @if $position == 'b' {
+        $prop: #{$property}-block-end;
+    }
+    
+    @if $position == '' {
+        $prop: #{$property};
+    }
+
+    @each $k, $v in vars.$breakpoints {
+        @include breakpoint.more-than($k) {
+            #{$prop}: calc(#{$space-size}rem + 0.5vw);
+            $space-size: $space-size + .2;
+        }
+    }
+}
+/*------------------------------------------------------------*/
+//? how to use:
+// @include space.padding($md:(h:1.5), $lg:(h:2) );
+/*------------------------------------------------------------*/
+@mixin r-padding($position:'') {
+	@include _r_get(padding, $position);
+}
+/*------------------------------------------------------------*/
+@mixin r-margin($position:'') {
+	@include _r_get(margin, $position);
+}
+/*------------------------------------------------------------*/
+@mixin r-gap($position:'') {
+	@include _r_get(margin, $position);
+}
+/*------------------------------------------------------------*/
+// When position is absolute you can set position values: top, bottom, left, right 
+@mixin r-inset($position:'') {
+	@include _r_get(inset, $position);
 }
 /*------------------------------------------------------------*/

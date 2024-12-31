@@ -26,15 +26,17 @@
 
 
 .r-container {
-        @include r_space.padding(
-            $all:(h:xxxs), 
-            $xxxs:(h:xxs),
-            $xxs:(h:xs),
-            $xs:(h:sm), 
-            $md:(h:md), 
-            $lg:(h:lg),
-            $xl:(h:xl),
-            $xxl:(h:xxl),
-            $xxxl:(h:xxxl)
-        );
+        // @include r_space.padding(
+        //     $all:(h:xxxs), 
+        //     $xxxs:(h:xxs),
+        //     $xxs:(h:xs),
+        //     $xs:(h:sm), 
+        //     $md:(h:md), 
+        //     $lg:(h:lg),
+        //     $xl:(h:xl),
+        //     $xxl:(h:xxl),
+        //     $xxxl:(h:xxxl)
+        // );
+    @include space.padding($v:md);
+    @include r_space.r-padding(h);
 }

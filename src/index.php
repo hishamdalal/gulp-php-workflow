@@ -67,7 +67,7 @@ $url = full_url( $_SERVER );
                     <a class="btn read-more" href="#">Read more</a>
                 </div>
             </article>
-            <form class="container-xl">
+            <form class="r-container">
 
                 <label class="form-switch">
                     <input type="checkbox">

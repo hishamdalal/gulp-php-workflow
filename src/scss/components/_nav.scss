@@ -24,17 +24,19 @@ $nav-height: 40px;
         box-shadow: 0px 0px 7px color.get(dark);
 
         // @include space.padding($md:(h:1.5), $lg:(h:2) );
-        @include r_space.padding(
-            //$all:(v:xxs), 
-            $xxs:(h:xs),
-            $xs:(h:sm), 
-            $md:(h:md), 
-            $lg:(h:lg),
-            $xl:(h:xl),
-            $xxl:(h:xxl),
-            $xxxl:(h:xxxl)
-        );
-        
+        // @include r_space.padding(
+        //     //$all:(v:xxs), 
+        //     $xxs:(h:xs),
+        //     $xs:(h:sm), 
+        //     $md:(h:md), 
+        //     $lg:(h:lg),
+        //     $xl:(h:xl),
+        //     $xxl:(h:xxl),
+        //     $xxxl:(h:xxxl)
+        // );
+        // @extend .rp-h;
+        @include r_space.r-padding(h);
+
         @include breakpoint.multi( 
             $sm:(grid-template-columns:200px auto), 
             $md:(grid-template-columns:200px auto),
@@ -224,7 +226,7 @@ $nav-height: 40px;
         z-index: 2;
         cursor: pointer;
         // position: relative;
-        @include space.padding($all:xs);
+        @include space.padding($v:xs, $h:lg);
         
         @include breakpoint.more-than(md) {
             display: none;

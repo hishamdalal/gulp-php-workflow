@@ -20,17 +20,19 @@ main {
         //@include space.padding($custom: 6rem 1rem);
         //@include space.custom('padding-block-start', xxl);
         
-        
-        @include r_space.padding(
-            $all:(v:xxl), 
-            $xxs:(h:xs),
-            $xs:(h:sm), 
-            $md:(h:md), 
-            $lg:(h:lg),
-            $xl:(h:xl),
-            $xxl:(h:xxl),
-            $xxxl:(h:xxxl)
-        );
+        @include space.padding($v:xxl);
+        @include r_space.r-padding('h');
+
+        // @include r_space.padding(
+        //     $all:(v:xxl), 
+        //     $xxs:(h:xs),
+        //     $xs:(h:sm), 
+        //     $md:(h:md), 
+        //     $lg:(h:lg),
+        //     $xl:(h:xl),
+        //     $xxl:(h:xxl),
+        //     $xxxl:(h:xxxl)
+        // );
 
         h1 {
             font-weight: 900;
@@ -41,7 +43,6 @@ main {
         }
 
         p {
-            font-size: large;
             @include space.margin($v:xs);
         }
     }

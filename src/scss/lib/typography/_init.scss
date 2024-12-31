@@ -1,9 +1,25 @@
-@use './mixin' as font;
+@use "./mixin" as font;
+@use '../breakpoints/mixin' as breakpoint;
+@use '../../vars/breakpoints' as vars;
 
 * {
-    font-family: "Cairo", sans-serif;
-    @include font.family('all');
-    font-optical-sizing: auto;
-    font-style: normal;
-    font-variation-settings: "slnt" 0;
+  //font-family: "Cairo", sans-serif;
+  @include font.family("all");
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+}
+
+
+$font-size: 9;
+@each $k, $v in vars.$breakpoints {
+  @if $k != infinity {
+    @include breakpoint.more-than($k) {
+      html {
+        font-size: calc(#{$font-size}px + 0.2vw);
+      }
+    }
+    $font-size: $font-size + 1;
   }
+}
+
