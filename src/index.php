@@ -68,7 +68,7 @@ $url = full_url( $_SERVER );
                 </div>
             </article>
             <form class="r-container">
-
+                
                 <label class="form-switch">
                     <input type="checkbox">
                     <i></i> label text 
@@ -90,8 +90,15 @@ $url = full_url( $_SERVER );
                 </div>
 
                 <div class="group-btn mt-20">
-                    <button class="btn fg-light:hover bg-accent:hover" type="button">btn 1</button>
-                    <button class="btn fg-light:hover bg-accent:hover" type="button">btn 2</button>
+                    <button class="btn fg-light:hover bg-accent:hover alert" type="button" 
+                        data-alert-msg="Created successfully" 
+                        data-alert-title="Success" 
+                        data-alert-icon="success">btn 1</button>
+
+                    <button class="btn fg-light:hover bg-accent:hover alert" type="button" 
+                        data-alert-msg="Coudnt do the proccess!"
+                        data-alert-title="Fail!"
+                        data-alert-icon="error">btn 2</button>
                 </div>
                 
                 <div class="group-btn mt-20">
