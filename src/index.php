@@ -93,12 +93,12 @@ $url = full_url( $_SERVER );
                     <button class="btn fg-light:hover bg-accent:hover alert" type="button" 
                         data-alert-msg="Created successfully" 
                         data-alert-title="Success" 
-                        data-alert-icon="success">btn 1</button>
+                        data-alert-type="success">btn 1</button>
 
                     <button class="btn fg-light:hover bg-accent:hover alert" type="button" 
                         data-alert-msg="Coudnt do the proccess!"
                         data-alert-title="Fail!"
-                        data-alert-icon="error">btn 2</button>
+                        data-alert-type="error">btn 2</button>
                 </div>
                 
                 <div class="group-btn mt-20">
@@ -111,7 +111,15 @@ $url = full_url( $_SERVER );
                         label text 
                     </label>
                 </div>
-
+                <ul class="notifications"></ul>
+            
+            <div class="toast-buttons group-btn">
+                <button type="button" class="btn txt-light bg-success" data-toast data-type="success" data-msg="Message success">Success</button>
+                <button type="button" class="btn txt-light bg-error" data-toast data-type="error" data-msg="Message error Something went worng">Error</button>
+                <button type="button" class="btn txt-light bg-warning" data-toast data-type="warning" data-msg="Message warning">Warning</button>
+                <button type="button" class="btn txt-light bg-info" data-toast data-type="info" data-msg="Message info">Info</button>
+                <button type="button" class="btn txt-light bg-question" data-toast data-type="question" data-msg="Message question">Question</button>
+            </div>
 
             </form>
         </div>

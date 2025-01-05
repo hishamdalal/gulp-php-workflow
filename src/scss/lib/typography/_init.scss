@@ -23,3 +23,41 @@ $font-size: 9;
   }
 }
 
+body {
+  // word-break: break-word;
+  word-wrap: break-word;
+
+  letter-spacing: 0.033rem;
+  word-spacing: 0.066rem;
+
+  font-smooth: auto;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  //-webkit-font-smoothing: subpixel-antialiased;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';  
+
+  -webkit-tap-highlight-color: transparent;
+
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  // text-rendering: optimizeSpeed;
+  // text-rendering: geometricPrecision;
+
+
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  text-decoration-thickness: 0.07em;
+  text-underline-offset: 0.08em;
+  text-underline-position: under;
+    
+
+}

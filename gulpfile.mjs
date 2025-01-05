@@ -52,7 +52,7 @@ function scss() {
 }
 
 function js() {
-    return browserify('./src/js/bundle.js', { debug: true, sourceMaps: true })
+    return browserify('src/js/bundle.js', { debug: true, sourceMaps: true })
         .transform(babelify)
         .bundle()
         .pipe(source('bundle.js'))

@@ -1,5 +1,5 @@
 {
-  "name": "gulp5-php-workflow",
+  "name": "gulp-php-workflow",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -30,6 +30,7 @@
     "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {
-    "sweetalert": "^2.1.2"
+    "sweetalert": "^2.1.2",
+    "toastify-js": "^1.12.0"
   }
 }

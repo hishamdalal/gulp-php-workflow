@@ -2,8 +2,9 @@
 @use '../vendors/normalize';
 @use '../vendors/fontello/css/fontello';
 @use '../vendors/realistic-ios-switch-pure-css/main';
+@use '../vendors/toast';
 @use './lib/typography';
-@use './init/global';
+// @use './init/global';
 @use './components/dark_light';
 @use './components/classes';
 @use './components/nav';

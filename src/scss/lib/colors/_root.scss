@@ -1,0 +1,8 @@
+//@use '../../vars/colors' as vars;
+//@use './colors/helper';
+
+//:root {
+    //@each $name, $value in vars.$colors {
+        //--color-#{"" + $name + ""}: #{helper.hexToRGBString($value)};       
+    //}
+//}

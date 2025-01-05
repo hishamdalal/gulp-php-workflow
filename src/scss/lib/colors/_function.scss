@@ -1,5 +1,5 @@
 @use "sass:map";
-@use '../../vars';
+@use '../../vars/colors' as vars;
 
 @function get($name, $opacity:0) {
     @if map.has-key(vars.$colors, $name) {
