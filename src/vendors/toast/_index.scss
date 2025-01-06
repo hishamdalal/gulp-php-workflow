@@ -10,7 +10,7 @@
     grid-auto-flow: column;
     gap: 1rem;
     position: fixed;
-    padding: .2rem 1.2rem;
+    padding: .2rem .8rem;
     color: rgb(var(--color-light)); 
     border-radius: .3rem;
     
@@ -24,3 +24,11 @@
 .toastify-left {inset-inline-start: 1rem;}
 .toastify-bottom { inset-block-end: 1rem;}
 .toastify-top { inset-block-start:  1rem;}
+.toast-close { padding: 0; }
+
+.toastify img{
+    margin: 0;
+    max-width: 100%;
+    align-self: center;
+    opacity: .4;
+}

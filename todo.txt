@@ -5,5 +5,5 @@
 (scss)      Add now mixin -> library/spacing: auto space depends on current breakpoint [DONE]
 (scss)      Add helper classes like '.flat-list' '.btn'. [DONE]
 (scss)      Modify component: Transparent colors. [DONE]
-(scss)      Add .r-container-{breakpoint} for custom responsive paddings and margins.
+(scss)      Add .r-container-{breakpoint} for custom responsive paddings and margins. [DONE]
 

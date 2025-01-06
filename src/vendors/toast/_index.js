@@ -14,6 +14,8 @@ exports.toast = function () {
               text: msg,
               duration: 30000,
               close: true,
+              stopOnFocus: true,
+              avatar: "assets/img/icons/"+type+".svg",
               className: type,
               gravity: "bottom", // `top` or `bottom`
               style: {

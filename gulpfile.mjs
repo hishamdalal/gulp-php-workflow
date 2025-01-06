@@ -64,7 +64,7 @@ function js() {
 }
 
 function img() {
-        return src('src/img/*', { encoding: false })
+        return src('src/img/**/*', { encoding: false })
             .pipe(imagemin())
             .pipe(dest('dist/assets/img'))
             .pipe(browserSync.stream());
