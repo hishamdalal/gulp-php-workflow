@@ -1,43 +1,48 @@
 
 $fonts: (
     //font-family: 'https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Merriweather:wght@300;700;900&display=swap',
-    font-family: 'https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap',
+    //cairo: 'https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap',
+    scheherazade-new: 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap',
 	//icons: 'vendors/fontello/css/fontello.css',
     //icons: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css',
 );
+
+$font-size: 12;
+
+
 $collection: (
 	hero: (
-		family: ('Cairo', sans-serif),
+		family: ("IBM Plex Sans Arabic", serif),
 		weight: 900,
 		size: 3rem,
 	),
 	primary: (
-		family: ('Cairo', sans-serif),
+		family: ("IBM Plex Sans Arabic", serif),
 		weight: 800,
 		size: 2.5rem,
 	),
 	secondary: (
-		family: ('Cairo', sans-serif),
-		weight: 300,
+		family: ("IBM Plex Sans Arabic", serif),
+		weight: 700,
 		size: 2rem,
 	),
 	tertiary: (
-		family: ('Cairo', sans-serif),
-		weight: 300,
+		family: ("IBM Plex Sans Arabic", serif),
+		weight: 700,
 		size: 1.5rem,
 	),
 	normal: (
-		family: ('Cairo', sans-serif),
-		weight: 100,
+		family: ("IBM Plex Sans Arabic", serif),
+		weight: 500,
 		size: 1rem,
 	),
 	small: (
-		family: ('Cairo', sans-serif),
-		weight: 100,
+		family: ("IBM Plex Sans Arabic", serif),
+		weight: 300,
 		size: .7rem,
 	),
 	all: (
-		family: ('Cairo', sans-serif),
+		family: ("IBM Plex Sans Arabic", serif),
 		weight: 100,
 		size: 1rem,
 	),

@@ -4,13 +4,9 @@
 
 /*------------------------------------------------------------*/
 @mixin collection($name) {
-	$family: function.get($name, 'family');
-	$weight: function.get($name, 'weight');
-	$size:   function.get($name, 'size');
-
-	font-family: #{$family};
-	font-weight: #{$weight};
-	font-size:   #{$size};
+	@include family($name);
+	@include weight($name);
+	// @include size($name);
 }
 /*------------------------------------------------------------*/
 @mixin family($name) {

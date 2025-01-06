@@ -54,16 +54,19 @@ $url = full_url( $_SERVER );
     <main class="home">
         <div class="main-container">
             <div class="hero">
-                <h1>Hello world</h1>
+                <h1>Hello world مرحباً بالعالم</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit quas voluptates reprehenderit necessitatibus, sapiente impedit reiciendis, libero nulla? </p>
                 <p>Hic, provident ea cumque fuga adipisci voluptates non consequuntur dolores nobis eum facilis dolore asperiores tenetur quia laudantium est autem.</p>
                 <button id="button" class="btn outline-secondary outline-hover:accent ">Counter: 0</button>
             </div>
             <article class="post">
-                <h3 class="title">Post title</h3>
+                <h3 class="title">Post title عنوان المقال</h3>
                 <img class="thumb" src="<?=$url?>assets/img/peter-livesey-unsplash.jpg" alt="">
                 <div class="text">
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias dolores, quasi aut, non pariatur esse, impedit voluptatem praesentium beatae architecto possimus? Quae delectus quisquam perferendis eius dolorem. Molestias, inventore consequuntur?</p>
+                    <p>لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه … بروشور او فلاير على سبيل المثال … او نماذج مواقع انترنت …</p>
+                    <p>وعند موافقه العميل المبدئيه على التصميم يتم ازالة هذا النص من التصميم ويتم وضع النصوص النهائية المطلوبة للتصميم ويقول البعض ان وضع النصوص التجريبية بالتصميم قد تشغل المشاهد عن وضع الكثير من الملاحظات او الانتقادات للتصميم الاساسي.</p>
+                    <p>وخلافاَ للاعتقاد السائد فإن لوريم إيبسوم ليس نصاَ عشوائياً، بل إن له جذور في الأدب اللاتيني الكلاسيكي منذ العام 45 قبل الميلاد. من كتاب “حول أقاصي الخير والشر”</p>
                     <a class="btn read-more" href="#">Read more</a>
                 </div>
             </article>

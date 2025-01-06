@@ -1,6 +1,7 @@
 @use '../lib/spacing' as space;
 @use '../lib/spacing/responsive' as r_space;
 @use '../lib/colors' as color;
+@use '../lib/typography/mixin' as font;
 
 
 .post {
@@ -18,6 +19,10 @@
     .title {
         grid-area: title;
         font-weight: 900;
+        @include space.margin($v:xs);
+        @include color.fg(accent);
+        @include font.collection(tertiary);
+        @include font.size(tertiary);
     }
     .thumb {
         grid-area: thumb;

@@ -65,9 +65,10 @@ $nav-height: 40px;
         align-items: center;
         justify-content: flex-end;
         grid-template-columns: auto auto;
-        @include breakpoint.more-than(md) {
-            grid-template-columns: 400px 320px;
-        }
+        gap: 1rem;
+        // @include breakpoint.more-than(md) {
+        //     grid-template-columns: 400px 320px;
+        // }
     }
     .items {
         list-style: none;

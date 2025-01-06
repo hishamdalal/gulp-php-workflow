@@ -1,6 +1,8 @@
 @use "./mixin" as font;
-@use '../breakpoints/mixin' as breakpoint;
-@use '../../vars/breakpoints' as vars;
+// @use '../breakpoints/mixin' as breakpoint;
+// @use '../../vars/breakpoints' as bvars;
+@use '../../vars/typography' as tvars;
+@use '../../lib/colors' as color;
 
 * {
   //font-family: "Cairo", sans-serif;
@@ -10,20 +12,31 @@
   font-variation-settings: "slnt" 0;
 }
 
+html, html a {
+  // -webkit-text-stroke: .025em rgba(51,51,51,0.50);
+  -webkit-text-stroke-width: .020em;
+  -webkit-text-stroke-color: inherit;
+  
+  // text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+  // @include color.custom(-webkit-text-stroke, inherit, .50);
 
-$font-size: 9;
-@each $k, $v in vars.$breakpoints {
-  @if $k != infinity {
-    @include breakpoint.more-than($k) {
-      html {
-        font-size: calc(#{$font-size}px + 0.2vw);
-      }
-    }
-    $font-size: $font-size + 1;
-  }
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+}
+
+html {
+  font-size: calc(#{tvars.$font-size}px + 0.25vw);
+
+  // @include breakpoint.less-than(md) {
+  //   font-size: calc(#{tvars.$font-size}px + 0.3vw);
+  // }
 }
 
 body {
+  // font-size: 16px;
+  line-height: 1.7;
   // word-break: break-word;
   word-wrap: break-word;
 
@@ -31,33 +44,46 @@ body {
   word-spacing: 0.066rem;
 
   font-smooth: auto;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  //-webkit-font-smoothing: subpixel-antialiased;
-
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
+  // -webkit-text-size-adjust: 100%;
 
   /* Support for IE. */
   font-feature-settings: 'liga';  
-
   -webkit-tap-highlight-color: transparent;
 
   /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-  // text-rendering: optimizeSpeed;
-  // text-rendering: geometricPrecision;
-
-
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-  -o-font-smoothing: antialiased;
   text-decoration-thickness: 0.07em;
   text-underline-offset: 0.08em;
   text-underline-position: under;
-    
 
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  
+  // text-rendering: auto;
+  // text-rendering: inherit;
+  // text-rendering: optimizeSpeed;
+  text-rendering: optimizeLegibility !important;
+  // text-rendering: geometricPrecision;
+
+  //font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  
+  -webkit-tap-highlight-color: transparent;
+  
+  
+}
+
+// $font-size: 9;
+// @each $k, $v in bvars.$breakpoints {
+//   @if $k != infinity {
+//     @include breakpoint.more-than($k) {
+//       html {
+//         font-size: calc(#{$font-size}px + 0.2vw);
+//       }
+//     }
+//     $font-size: $font-size + 1;
+//   }
+// }
+
+a {
+  text-decoration: none !important;
 }

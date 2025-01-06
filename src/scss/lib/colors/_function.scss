@@ -11,6 +11,6 @@
     }
     @else {
         @warn "Color #{$name} is not exist";
-        @return #ffffff00;
+        @return inherit;
     }
 }
