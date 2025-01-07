@@ -1,6 +1,7 @@
 @use '../lib/colors' as color;
 @use '../lib/spacing' as space;
 @use '../lib/breakpoints' as breakpoint;
+@use '../lib/animation/transition';
 
 aside {
     @include space.padding($t:xxl, $h:lg);
@@ -19,12 +20,27 @@ aside {
             @include space.padding($v:sm, $h:md);
             @include space.margin($v:xs);
             @include color.border($selector:border-inline-start, $width:.2rem, $color:primary);
-            
-            &:hover {
+            position: relative;
+            &::after {
+                content: '';
+                position: absolute;
                 @include color.bg(light);
+                width: 0;
+                height: 100%;
+                inset-inline-start: 0;
+                inset-block-start: 0;
+                z-index: -1;
+                @include transition.transition($function:cubic-bezier(0.76, 0.45, 0.72, 0.46) ,$property:(width));
+            }     
+            &:hover {
+                //@include color.bg(light);
                 @include color.border($selector:border-inline-start, $width:.2rem, $color:accent);
-                
+                &:after {
+                    width: 100%;
+                }
             }
+
+     
         }
     }
 }
