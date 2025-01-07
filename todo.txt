@@ -7,3 +7,5 @@
 (scss)      Modify component: Transparent colors. [DONE]
 (scss)      Add .r-container-{breakpoint} for custom responsive paddings and margins. [DONE]
 
+(structure) Create folder: src/assets
+(structure) Move bundle.scss, bundle.js img and vendors to src/assets

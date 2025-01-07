@@ -1,0 +1,8 @@
+@use '../scss/lib/colors' as color; 
+
+.swal-modal {
+    .swal-button {
+        @include color.bg(primary);
+    }
+     
+}

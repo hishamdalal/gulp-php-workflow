@@ -101,7 +101,7 @@ function watchTask() {
     // watch('src/scss/**/*.scss', series(scss, browserSyncStream))
     watch('src/scss/**/*.scss', series(scss, browserSyncReload))
     watch('src/js/**/*.js', series(js, browserSyncReload))
-    watch('src/img/**', series(img, browserSyncReload))
+    watch('src/img/**/*.*', series(img, browserSyncReload))
     watch('src/vendors/**/*.scss', series(scss, browserSyncReload))
     watch('src/vendors/**/*.js', series(js, browserSyncReload))
 }

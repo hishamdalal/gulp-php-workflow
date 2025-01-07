@@ -1,5 +1,7 @@
  
+@use "../../scss/lib/colors" as color;
 @import "../../node_modules/toastify-js/src/toastify.css";
+
 
 //*:has(.toastify) {
     //position: unset;
@@ -8,27 +10,37 @@
     // border: 1px solid #ccc;
     display: grid;
     grid-auto-flow: column;
+    align-items: center;
     gap: 1rem;
     position: fixed;
     padding: .2rem .8rem;
-    color: rgb(var(--color-light)); 
+    @include color.fg(dark-2);
     border-radius: .3rem;
+    height: 30px;
+    box-shadow: unset;
     
-    &.success   {background: rgb(var(--color-success));}
-    &.info      {background: rgb(var(--color-info)); }
-    &.question  {background: rgb(var(--color-question));}
-    &.warning   {background: rgb(var(--color-warning));}
-    &.error     {background: rgb(var(--color-error));}
+    &.success   {@include color.custom(background, success);}
+    &.info      {@include color.custom(background, info); }
+    &.question  {@include color.custom(background, question);}
+    &.warning   {@include color.custom(background, warning);}
+    &.error     {@include color.custom(background, error);}
 }
 .toastify-right {inset-inline-end:  1rem;}
 .toastify-left {inset-inline-start: 1rem;}
 .toastify-bottom { inset-block-end: 1rem;}
 .toastify-top { inset-block-start:  1rem;}
-.toast-close { padding: 0; }
+
+.toast-close { 
+    padding: 0; 
+    @include color.fg(dark-2);
+    transform: scale(1.2);
+}
 
 .toastify img{
     margin: 0;
-    max-width: 100%;
     align-self: center;
     opacity: .4;
+    transform: scale(1.2);
 }
+
+

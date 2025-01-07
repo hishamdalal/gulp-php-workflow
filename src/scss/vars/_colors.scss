@@ -74,8 +74,3 @@ $dark-colors: (
 //     transparent: transparent,
 // );
 
-:root {
-    @for $opacity from 0 through 9 {
-        --alpha-#{$opacity}: 0.#{$opacity};
-    }
-}

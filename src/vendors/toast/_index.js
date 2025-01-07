@@ -1,6 +1,7 @@
  
 const Toastify  = require('toastify-js')
 
+console.log('Vectors and icons by "Solar Icons" https://www.figma.com/community/file/1166831539721848736?ref=svgrepo.com"\nin CC Attribution License via SVG Repo -> https://www.svgrepo.com/');
 
 exports.toast = function () {
     const btns = document.querySelectorAll('[data-toast]');

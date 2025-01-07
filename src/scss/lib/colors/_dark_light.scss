@@ -1,8 +1,8 @@
 @use "sass:math";
 // @use "sass:map";
-@use '../lib/helper/maps'; 
-@use '../vars/colors' as vars;
-@use '../lib/colors/helper';
+@use '../helper/maps'; 
+@use '../../vars/colors' as vars;
+@use './helper';
 
 @mixin root-colors($colors) {
   @each $name, $value in $colors {

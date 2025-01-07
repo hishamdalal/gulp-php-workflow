@@ -25,7 +25,7 @@
             display: grid;
             align-items: center;
             align-content: flex-start;
-            @include transition.ease($property:(background-color, color, border));
+            @include transition.ease($property:(background-color, color));
             
             &:hover {
                 @include color.bg(primary-dark);
