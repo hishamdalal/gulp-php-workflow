@@ -18,6 +18,7 @@ exports.toast = function () {
               stopOnFocus: true,
               avatar: "assets/img/icons/"+type+".svg",
               className: type,
+              // position: "left",
               gravity: "bottom", // `top` or `bottom`
               style: {
                 //background: "linear-gradient(to right, #00b09b, #96c93d)",

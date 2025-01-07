@@ -5,7 +5,7 @@
     
     #{$prop}: function.get($color, $opacity);
     
-    @if $prop == 'color' or $prop == 'background-color' {
+    @if $prop == 'color' or $prop == 'background-color' or $prop == 'fill' {
         $var: --color-#{$color};
         @if $opacity>0 {
             $opacity: ($opacity * 10);
