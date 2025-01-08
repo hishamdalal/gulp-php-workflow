@@ -1,0 +1,6 @@
+@use '../lib/colors' as color;
+
+* {
+  //accent-color: color.get(accent);
+  @include color.custom(accent-color, accent);
+}

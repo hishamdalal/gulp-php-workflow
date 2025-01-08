@@ -4,8 +4,8 @@
 @use '../vendors/realistic-ios-switch-pure-css/main';
 @use '../vendors/toast';
 @use '../vendors/sweet-alert';
+@use './init';
 @use './lib/typography';
-// @use './init/global';
 @use './lib/colors/dark_light';
 @use './components/classes';
 @use './components/nav';

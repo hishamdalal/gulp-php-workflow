@@ -139,7 +139,7 @@ $nav-height: 40px;
     .tools {
         display: none;
         list-style: none;
-        height: 24px;
+        //height: 24px;
         
         @include space.margin($all:zero);
         @include space.padding($v:xs, $h:sm);

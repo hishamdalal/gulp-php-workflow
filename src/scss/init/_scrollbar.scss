@@ -1,0 +1,47 @@
+@use '../lib/colors' as color;
+
+:root {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+}
+html, html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Firefox */
+body {
+    scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    //box-shadow: inset 0 0 6px colors(dark, 0.8);
+}
+
+//::-webkit-scrollbar-track-piece  { }
+::-webkit-scrollbar-track {
+    @include color.bg(primary);
+}
+
+::-webkit-scrollbar-thumb {
+    @include color.bg(secondary);
+    /* color of the scroll thumb */
+    border-radius: 0px;
+    /* roundness of the scroll thumb */
+    //border: 1px solid colors(secondary);  /* creates padding around scroll thumb */
+    //outline: 1px solid colors(secondary-dark);
+    //box-shadow: inset -4px 0px 6px colors(secondary-4);
+    background-clip: padding-box;
+    //@include color-replace(box-shadow, 'inset -4px 0px 6px %', (secondary-4));
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    @include color.bg(secondary, .8);
+    //box-shadow: inset -2px 0px 2px colors(secondary, (light:7));
+}
+
+::-webkit-scrollbar-thumb:active {
+    @include color.bg(secondary, .8)
+}
