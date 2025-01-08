@@ -57,7 +57,7 @@ $url = full_url( $_SERVER );
                 <h1>Hello world مرحباً بالعالم</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit quas voluptates reprehenderit necessitatibus, sapiente impedit reiciendis, libero nulla? </p>
                 <p>Hic, provident ea cumque fuga adipisci voluptates non consequuntur dolores nobis eum facilis dolore asperiores tenetur quia laudantium est autem.</p>
-                <button id="button" class="btn outline-secondary outline-hover:accent ">Counter: 0</button>
+                <button id="button" class="btn bg-secondary outline-light-3 outline-dark:hover ">Counter: 0</button>
             </div>
             <article class="post">
                 <h3 class="title">Post title عنوان المقال</h3>
@@ -67,7 +67,7 @@ $url = full_url( $_SERVER );
                     <p>لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه … بروشور او فلاير على سبيل المثال … او نماذج مواقع انترنت …</p>
                     <p>وعند موافقه العميل المبدئيه على التصميم يتم ازالة هذا النص من التصميم ويتم وضع النصوص النهائية المطلوبة للتصميم ويقول البعض ان وضع النصوص التجريبية بالتصميم قد تشغل المشاهد عن وضع الكثير من الملاحظات او الانتقادات للتصميم الاساسي.</p>
                     <p>وخلافاَ للاعتقاد السائد فإن لوريم إيبسوم ليس نصاَ عشوائياً، بل إن له جذور في الأدب اللاتيني الكلاسيكي منذ العام 45 قبل الميلاد. من كتاب “حول أقاصي الخير والشر”</p>
-                    <a class="btn read-more" href="#">Read more</a>
+                    <a class="btn read-more bg-light fg-accent" href="#">Read more</a>
                 </div>
             </article>
             <form class="r-container">

@@ -7,7 +7,7 @@
 
 .btn {
     display: grid;
-    //@include color.border($color: 'gray');
+    // @include color.outline($color: 'gray');
     // @include color.fg(dark);
     // @include color.bg(light);
     border: none;
@@ -24,8 +24,9 @@
 
     &:hover {
         // box-shadow: 0 0 6px color.get(light-3);
-        // filter: brightness(1.4);
-        filter:contrast(1.5);
+        // filter: contrast(1.3);
+        filter: brightness(1.3);
+        backdrop-filter: brightness(1.1);
     }
 
     // &:active {

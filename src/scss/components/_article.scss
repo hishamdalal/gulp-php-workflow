@@ -45,5 +45,6 @@
         @include space.padding($h:md, $v:xs);
         // @include space.margin($t:md);
         align-self: self-end;
+        @include color.outline($color:primary);
     }
 }
