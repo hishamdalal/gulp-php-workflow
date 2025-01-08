@@ -32,13 +32,42 @@ const preset = litePreset({ colormin: false });
 
 // npm install -D gulp browserify babelify vinyl-source-stream vinyl-buffer gulp-sass sass gulp-postcss cssnano gulp-terser browser-sync gulp-sourcemaps gulp-imagemin autoprefixer
 
+const path = {
+    src: {
+        php: 'src/**/*.php',
+        style: 'src/assets/scss/bundle.scss',
+        script: 'src/assets/js/bundle.js',
+        imgs: 'src/assets/img/**/*',
+        fonts: 'src/assets/vendors/fontello/font/**',
+    },
+    dist: {
+        php: 'dist',
+        style: 'dist/assets',
+        script: 'src/assets',
+        imgs: 'src/assets',
+        fonts: 'dist/assets/vendors/fontello/font',
+    },
+    url: 'http://localhost/workflow/Gulp/gulp-php-workflow/dist/',
+    watch: {
+        php: 'src/*.php',
+        style: 'src/scss/**/*.scss',
+        script: 'src/js/**/*.js',
+        imgs: 'src/img/**/*.*',
+        vendors: {
+            style:'src/vendors/**/*.scss',
+            script: 'src/vendors/**/*.js',
+        }
+    }
+};
+
+
 function php() {
-    return src('src/**/*.php')
-        .pipe(dest('dist'))
+    return src(path.src.php)
+        .pipe(dest(path.dist.php))
 }
 
 function scss() {
-    return src('src/scss/bundle.scss')
+    return src(path.src.style)
         .pipe(sourcemaps.init())
         .pipe(sass({
             outputStyle: 'compressed',
@@ -47,12 +76,12 @@ function scss() {
         }).on('error', sass.logError))
         .pipe(postcss([cssnano({ preset, plugins: [autoprefixer] })]))
         .pipe(sourcemaps.write())
-        .pipe(dest('dist/assets', { sourceMaps: '.' }))
+        .pipe(dest(path.dist.style, { sourceMaps: '.' }))
         .pipe(browserSync.stream());
 }
 
 function js() {
-    return browserify('src/js/bundle.js', { debug: true, sourceMaps: true })
+    return browserify(path.src.script, { debug: true, sourceMaps: true })
         .transform(babelify)
         .bundle()
         .pipe(source('bundle.js'))
@@ -60,25 +89,25 @@ function js() {
         .pipe(terser())
         .pipe(sourcemaps.init())
         .pipe(sourcemaps.write())
-        .pipe(dest('dist/assets', { sourceMaps: '.' }))
+        .pipe(dest(path.dist.script, { sourceMaps: '.' }))
 }
 
 function img() {
-        return src('src/img/**/*', { encoding: false })
+        return src(path.src.imgs, { encoding: false })
             .pipe(imagemin())
-            .pipe(dest('dist/assets/img'))
+            .pipe(dest(path.dist.imgs))
             .pipe(browserSync.stream());
 }
 
 function fonts() {
-    return src('src/vendors/fontello/font/**', { encoding: false })
-        .pipe(dest('dist/assets/vendors/fontello/font'))
+    return src(path.src.fonts, { encoding: false })
+        .pipe(dest(path.dist.fonts))
         .pipe(browserSync.stream());
 }
 // BrowserSync Tasks
 function browserSyncServe(cb) {
     browserSync.init({
-        proxy: "http://localhost/workflow/Gulp/gulp-php-workflow/dist/",
+        proxy: path.url,
         port: 3000,
         // server: {
         //    baseDir: ['dist'],
@@ -97,13 +126,12 @@ function browserSyncStream(cb) {
 
 // Watch Task
 function watchTask() {
-    watch('src/*.php', series(php, browserSyncReload));
-    // watch('src/scss/**/*.scss', series(scss, browserSyncStream))
-    watch('src/scss/**/*.scss', series(scss, browserSyncReload))
-    watch('src/js/**/*.js', series(js, browserSyncReload))
-    watch('src/img/**/*.*', series(img, browserSyncReload))
-    watch('src/vendors/**/*.scss', series(scss, browserSyncReload))
-    watch('src/vendors/**/*.js', series(js, browserSyncReload))
+    watch(path.watch.php, series(php, browserSyncReload));
+    watch(path.watch.style, series(scss, browserSyncReload))
+    watch(path.watch.script, series(js, browserSyncReload))
+    watch(path.watch.imgs, series(img, browserSyncReload))
+    watch(path.watch.vendors.style, series(scss, browserSyncReload))
+    watch(path.watch.vendors.script, series(js, browserSyncReload))
 }
 
 export default series(

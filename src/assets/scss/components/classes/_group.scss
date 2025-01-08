@@ -1,6 +1,6 @@
-@use '../lib/colors' as color;
+@use '../../lib/colors' as color;
 
-.group-btn {
+.btns-group {
     display: flex;
 
     :first-child {
@@ -18,14 +18,24 @@
         display: none;
     
     }
+
 }
 
-
-[dir="rtl"] .group-btn {
+[dir="rtl"] .btns-group {
     :first-child {
         border-radius: 0 .5rem .5rem 0;
     }
     :last-child {
         border-radius: .5rem 0 0 .5rem;
+    }
+}
+
+
+.bordered-group {
+    .btn{
+        @include color.border($color:'gray');
+    }
+    .btn + .btn {
+        border-inline-start: none;
     }
 }

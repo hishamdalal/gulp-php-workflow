@@ -3,7 +3,7 @@
 @use '../lib/colors' as color;
 @use '../lib/breakpoints' as breakpoint;
 @use '../lib/animation/keyframe';
-
+@use '../components/classes/group';
 main {
     display: grid;
     
@@ -51,4 +51,10 @@ main {
         @include space.margin($v: lg);
         justify-self: center;
     }
+    
+    .btns-group {
+        @extend .bordered-group; 
+    }
+        
+    
 }

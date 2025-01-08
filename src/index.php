@@ -91,20 +91,22 @@ $url = full_url( $_SERVER );
                         <div class="content">Test</div>
                     </div>
                 </div>
+                
+                <div class="container group-test">
+                    <div class="btns-group mt-20">
+                        <button class="btn fg-light:hover bg-accent:hover alert" type="button" 
+                            data-alert-msg="Created successfully" 
+                            data-alert-title="Success" 
+                            data-alert-type="success">btn 1</button>
 
-                <div class="group-btn mt-20">
-                    <button class="btn fg-light:hover bg-accent:hover alert" type="button" 
-                        data-alert-msg="Created successfully" 
-                        data-alert-title="Success" 
-                        data-alert-type="success">btn 1</button>
-
-                    <button class="btn fg-light:hover bg-accent:hover alert" type="button" 
-                        data-alert-msg="Coudnt do the proccess!"
-                        data-alert-title="Fail!"
-                        data-alert-type="error">btn 2</button>
+                        <button class="btn fg-light:hover bg-accent:hover alert" type="button" 
+                            data-alert-msg="Coudnt do the proccess!"
+                            data-alert-title="Fail!"
+                            data-alert-type="error">btn 2</button>
+                    </div>
                 </div>
                 
-                <div class="group-btn mt-20">
+                <div class="btns-group mt-20">
                     <label class="btn">
                         <input class="fg-light:hover bg-accent:hover" type="radio" name="group-radio" />
                         label text 
@@ -116,7 +118,7 @@ $url = full_url( $_SERVER );
                 </div>
                 <ul class="notifications"></ul>
             
-            <div class="toast-buttons group-btn">
+            <div class="toast-buttons btns-group">
                 <button type="button" class="btn txt-light bg-success" data-toast data-type="success" data-msg="Message success">Success</button>
                 <button type="button" class="btn txt-light bg-error" data-toast data-type="error" data-msg="Message error Something went worng">Error</button>
                 <button type="button" class="btn txt-light bg-warning" data-toast data-type="warning" data-msg="Message warning">Warning</button>
