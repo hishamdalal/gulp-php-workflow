@@ -12,16 +12,15 @@
   font-variation-settings: "slnt" 0;
 }
 
-::selection, 
-::-moz-selection { /* Code for Firefox */  
+::selection{ 
     @include color.bg(accent);
     @include color.fg(light);
-    -webkit-text-stroke-color: #fff;
+    // -webkit-text-stroke-width: 0em!important;
 }
 
 html, html a {
-  -webkit-text-stroke-width: .02em;
-  -webkit-text-stroke-color: inherit;
+  // -webkit-text-stroke-width: .02em;
+  // -webkit-text-stroke-color: inherit;
   
   // text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
   // @include color.custom(-webkit-text-stroke, inherit, .50);

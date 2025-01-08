@@ -3,6 +3,10 @@
 .swal-modal {
     .swal-button {
         @include color.bg(primary);
+
+        &:hover {
+            @include color.bg(secondary);
+        }
     }
      
 }
