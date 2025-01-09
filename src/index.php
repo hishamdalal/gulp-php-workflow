@@ -1,10 +1,18 @@
 <?php
+// namespace App;
+
+require_once( realpath('../vendor/autoload.php') );
+
 require_once('functions.php');
 
 $url = full_url( $_SERVER );
 
 // $path = parse_url($url, PHP_URL_HOST);
 // echo __DIR__;
+
+// include 'App/Classes/Test.php';
+$t = new App\Classes\Test();
+//print_r($t);
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">

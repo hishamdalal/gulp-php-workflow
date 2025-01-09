@@ -1,5 +1,9 @@
 <?php
 
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+
 function url_origin( $s, $use_forwarded_host = false )
 {
     $ssl      = ( ! empty( $s['HTTPS'] ) && $s['HTTPS'] == 'on' );
