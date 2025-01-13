@@ -15,10 +15,9 @@
     &>div { display: none}
 
     @each $key, $map in vars.$breakpoints {
-        
-		@include breakpoints.equal-to($key){
-			& > div.#{$key} { display: block;}
-		}
-	}
+        @include breakpoints.equal-to($key){
+          & > div.#{$key} { display: block;}
+        }
+    }
 
 }

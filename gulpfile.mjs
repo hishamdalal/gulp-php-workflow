@@ -14,21 +14,20 @@ import buffer from 'vinyl-buffer';
 
 import * as dartSass from 'sass';
 import gulpSass from 'gulp-sass';
-
-const sass = gulpSass(dartSass);
-
 import postcss from 'gulp-postcss';
 import cssnano from 'cssnano';
 import litePreset from 'cssnano-preset-lite';
 import terser from 'gulp-terser';
 import browser_sync from 'browser-sync';
-const browserSync = browser_sync.create();
 import sourcemaps from 'gulp-sourcemaps';
 // import imagemin from 'gulp-imagemin';
 import imagemin from 'gulp-image';
 import autoprefixer from 'autoprefixer';
 
+const sass = gulpSass(dartSass);
 const preset = litePreset({ colormin: false });
+const browserSync = browser_sync.create();
+
 
 // npm install -D gulp browserify babelify vinyl-source-stream vinyl-buffer gulp-sass sass gulp-postcss cssnano gulp-terser browser-sync gulp-sourcemaps gulp-imagemin autoprefixer
 
@@ -40,22 +39,22 @@ const path = {
         imgs: 'src/assets/img/**/*',
         fonts: 'src/assets/vendors/fontello/font/**',
     },
-    dist: {
+    dest: {
         php: 'dist',
         style: 'dist/assets',
-        script: 'src/assets',
-        imgs: 'src/assets',
+        script: 'dist/assets',
+        imgs: 'dist/assets/img',
         fonts: 'dist/assets/vendors/fontello/font',
     },
     url: 'http://localhost/workflow/Gulp/gulp-php-workflow/dist/',
     watch: {
-        php: 'src/*.php',
-        style: 'src/scss/**/*.scss',
-        script: 'src/js/**/*.js',
-        imgs: 'src/img/**/*.*',
+        php: 'src/**/*.php',
+        style: 'src/assets/scss/**/*.scss',
+        script: 'src/assets/js/**/*.js',
+        imgs: 'src/assets/img/**/*.*',
         vendors: {
-            style:'src/vendors/**/*.scss',
-            script: 'src/vendors/**/*.js',
+            style:'src/assets/vendors/**/*.scss',
+            script: 'src/assets/vendors/**/*.js',
         }
     }
 };
@@ -63,7 +62,7 @@ const path = {
 
 function php() {
     return src(path.src.php)
-        .pipe(dest(path.dist.php))
+        .pipe(dest(path.dest.php))
 }
 
 function scss() {
@@ -75,8 +74,8 @@ function scss() {
             silenceDeprecations: ['legacy-js-api', 'mixed-decls', 'color-functions', 'global-builtin', 'import'],
         }).on('error', sass.logError))
         .pipe(postcss([cssnano({ preset, plugins: [autoprefixer] })]))
-        .pipe(sourcemaps.write())
-        .pipe(dest(path.dist.style, { sourceMaps: '.' }))
+        .pipe(sourcemaps.write('maps'))
+        .pipe(dest(path.dest.style, { sourceMaps: '.' }))
         .pipe(browserSync.stream());
 }
 
@@ -88,20 +87,20 @@ function js() {
         .pipe(buffer())
         .pipe(terser())
         .pipe(sourcemaps.init())
-        .pipe(sourcemaps.write())
-        .pipe(dest(path.dist.script, { sourceMaps: '.' }))
+        .pipe(sourcemaps.write('maps'))
+        .pipe(dest(path.dest.script, { sourceMaps: '.' }))
 }
 
 function img() {
         return src(path.src.imgs, { encoding: false })
             .pipe(imagemin())
-            .pipe(dest(path.dist.imgs))
+            .pipe(dest(path.dest.imgs))
             .pipe(browserSync.stream());
 }
 
 function fonts() {
     return src(path.src.fonts, { encoding: false })
-        .pipe(dest(path.dist.fonts))
+        .pipe(dest(path.dest.fonts))
         .pipe(browserSync.stream());
 }
 // BrowserSync Tasks

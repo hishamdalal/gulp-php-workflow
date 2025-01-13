@@ -1,0 +1,29 @@
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
+
+@use '../../vars';
+// @use '../helper/maps';
+
+/**
+ * @var $key: string (xxs, xs, sm, md, lg, xl, xxl)
+ * @var $type: string (val, next, prev) default: val
+ * @return: if $type=val will return rem value, if $type=(next or prev) will return next point rem value [see: var/_breakpoint.scss]
+ */
+/*------------------------------------------------------------*/
+@function get($key, $type:val) {
+    @return map.get(vars.$breakpoints, $key, $type);
+}
+/*------------------------------------------------------------*/
+@function max($key) {
+	
+    $next: get($key, next);
+    $next_val: get($next, val);
+
+    // @if $next == none {
+    //     @warn 'Breakpoint max of: "', $key , '" is not found!';
+    // }
+
+	@return $next_val;
+}
+/*------------------------------------------------------------*/

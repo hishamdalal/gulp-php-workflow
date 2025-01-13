@@ -11,7 +11,7 @@ $url = full_url( $_SERVER );
 // echo __DIR__;
 
 // include 'App/Classes/Test.php';
-$t = new App\Classes\Test();
+//$t = new App\Classes\Test();
 //print_r($t);
 ?>
 <!DOCTYPE html>
@@ -30,10 +30,23 @@ $t = new App\Classes\Test();
                 <img src="assets/img/logo.png" /> Gulp PHP Workflow
             </div>
             <div class="menu">
-                <ul class="items">
-                    <li><a class="active" href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
+                <ul class="items nav navbar-nav">
+                    <li class="menu-item"><a class="nav-link show" href="#">Home</a></li>
+                    <li class="menu-item menu-item-has-children">
+                        <a class="dropdown-toggle nav-link" href="#">Services</a>
+                        <ul class="dropdown-menu">
+                            <li class="menu-item nav-item"><a class="dropdown-item" href="#">Service 1</a></li>
+                            <li class="menu-item nav-item"><a class="dropdown-item" href="#">Service 2</a></li>
+                            <li class="menu-item menu-item-has-children"> <a class="dropdown-toggle nav-link" href="#">Service 3</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Sub service 3-1</a></li>
+                                    <li><a class="dropdown-item" href="#">Sub service 3-2</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item"><a class="nav-link" href="#">About</a></li>
+                    <li class="menu-item"><a class="nav-link" href="#">Contact</a></li>
                 </ul>
                 <ul class="tools">
                     <li><form class="search-form"><input class="search-input" name="q" /><i class="search-icon icon-search-1"></i></form></li>
@@ -48,10 +61,23 @@ $t = new App\Classes\Test();
                 <label class="nav-toggle icon-menu">
                     <input type="checkbox" id="toggle" />
                     <div class="mobile-nav">
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Contact</a></li>
+                        <ul class="items nav navbar-nav">
+                            <li class="menu-item"><a class="nav-link show" href="#">Home</a></li>
+                            <li class="menu-item menu-item-has-children">
+                                <a class="dropdown-toggle nav-link" href="#">Services</a>
+                                <ul class="dropdown-menu">
+                                    <li class="menu-item nav-item"><a class="dropdown-item" href="#">Service 1</a></li>
+                                    <li class="menu-item nav-item"><a class="dropdown-item" href="#">Service 2</a></li>
+                                    <li class="menu-item menu-item-has-children"> <a class="dropdown-toggle nav-link" href="#">Service 3</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Sub service 3-1</a></li>
+                                            <li><a class="dropdown-item" href="#">Sub service 3-2</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item"><a class="nav-link" href="#">About</a></li>
+                            <li class="menu-item"><a class="nav-link" href="#">Contact</a></li>
                         </ul>
                     </div>
                 </label>
@@ -126,14 +152,28 @@ $t = new App\Classes\Test();
                 </div>
                 <ul class="notifications"></ul>
             
-            <div class="toast-buttons btns-group">
-                <button type="button" class="btn txt-light bg-success" data-toast data-type="success" data-msg="Message success">Success</button>
-                <button type="button" class="btn txt-light bg-error" data-toast data-type="error" data-msg="Message error Something went worng">Error</button>
-                <button type="button" class="btn txt-light bg-warning" data-toast data-type="warning" data-msg="Message warning">Warning</button>
-                <button type="button" class="btn txt-light bg-info" data-toast data-type="info" data-msg="Message info">Info</button>
-                <button type="button" class="btn txt-light bg-question" data-toast data-type="question" data-msg="Message question">Question</button>
-            </div>
-
+                <div class="toast-buttons btns-group">
+                    <button type="button" class="btn txt-light bg-success" data-toast data-type="success" data-msg="Message success">Success</button>
+                    <button type="button" class="btn txt-light bg-error" data-toast data-type="error" data-msg="Message error Something went worng">Error</button>
+                    <button type="button" class="btn txt-light bg-warning" data-toast data-type="warning" data-msg="Message warning">Warning</button>
+                    <button type="button" class="btn txt-light bg-info" data-toast data-type="info" data-msg="Message info">Info</button>
+                    <button type="button" class="btn txt-light bg-question" data-toast data-type="question" data-msg="Message question">Question</button>
+                </div>
+                <!--div class="grid">
+                    <div class="col">1</div>
+                    <div class="col">2</div>
+                    <div class="col">3</div>
+                    <div class="col">4</div>
+                    <div class="col">5</div>
+                    <div class="col">6</div>
+                    <div class="col">7</div>
+                    <div class="col">8</div>
+                    <div class="col">9</div>
+                    <div class="col">10</div>
+                    <div class="col">11</div>
+                    <div class="col">12</div>
+                    <div class="col">13</div>
+                </div-->
             </form>
         </div>
         <aside>

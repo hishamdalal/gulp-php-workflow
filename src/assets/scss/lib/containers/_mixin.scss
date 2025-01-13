@@ -1,0 +1,108 @@
+@use "sass:meta";
+
+@use '../../vars';
+@use './function';
+
+/*------------------------------------------------------------*/
+@mixin equal-to($key) {
+	$min: function.get($key);
+	$max: function.max($key) - 0.2;
+	
+	@if $max == none {
+		@container (min-width:#{$min}) {
+			@content;
+		}
+	}
+	@else {
+		@container (min-width:#{$min}) and (max-width:#{$max}) {
+			@content;
+		}
+	}
+}
+/*------------------------------------------------------------*/
+@mixin more-than($key) {
+	$point: function.get($key, next);
+	$width: function.get($point);
+	
+	@container (min-width:#{$width}) {
+		@content;
+	}
+}
+/*------------------------------------------------------------*/
+@mixin less-than($key) {
+	//$point: function.get($key, prev);
+	$width: function.get($key) ;
+	@container (max-width:#{$width}) {
+		@content;
+	}
+}
+/*------------------------------------------------------------*/
+@mixin between($key1, $key2) {
+	$width-1: function.get($key1);
+	$width-2: function.get($key2);
+
+	@container (min-width:#{$width-1}) and (max-width:#{$width-2}) {
+		@content;
+	}
+}
+/*------------------------------------------------------------*/
+@mixin equal-or-more($key) {
+	$width: function.get($key);
+
+	@container (min-width:#{$width}) {
+		@content;
+	}
+
+}
+/*------------------------------------------------------------*/
+@mixin equal-or-less($key) {
+	$width: function.get($key);
+
+	@container (max-width:#{$width}) {
+		@content;
+	}
+
+}
+/*------------------------------------------------------------*/
+//? How to use:
+// @include breakpoint.multi( $lg:(font-family:tahoma, color:red), $xl:(font-family:times, color:blue) ); 
+
+@mixin multi($args...) {
+
+	@each $point, $map in meta.keywords($args) {
+		@include more-than($point){
+			@each $k, $v in $map {
+				#{$k}: #{$v};
+			}
+		}
+		
+	}
+}
+/*------------------------------------------------------------*/
+@mixin custom($name, $min_width:0) {
+	$unit: 'px';
+	$unit_min_width: $min_width + $unit;
+	$unit_max_width: $max_width + $unit;
+
+	@if $min_width > 0 {
+		@container #{$name} (min-width: #{$unit_min_width}) { @content; }
+	}
+	
+	@else if $max_width > 0 {
+		@container #{$name} (max-width: #{$unit_min_width}) { @content; }
+	}
+	
+	@else if $min_width > 0 {
+		@container #{$name} (min-width: #{$unit_min_width}) { @content; }
+	}
+}
+/*------------------------------------------------------------*/
+@mixin more-than-size($name, $min_width:0) {
+	$unit: 'px';
+	$unit_min_width: $min_width + $unit;
+
+	@if $min_width > 0 {
+		@container #{$name} (min-width: #{$unit_min_width}) { @content; }
+	}
+}
+/*------------------------------------------------------------*/

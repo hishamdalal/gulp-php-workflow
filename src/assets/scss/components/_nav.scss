@@ -70,6 +70,7 @@ $nav-height: 40px;
         //     grid-template-columns: 400px 320px;
         // }
     }
+    // .nav.navbar-nav
     .items {
         list-style: none;
         margin: 0;
@@ -84,7 +85,7 @@ $nav-height: 40px;
         @include breakpoint.more-than(md) {
             display: grid;
         }      
-
+        
         a {
             display: flex;
             align-items: center;
@@ -93,6 +94,8 @@ $nav-height: 40px;
             @include color.fg(light-3);
             z-index: 10;
             height: 100%;
+        }
+        &>.menu-item > a{
             // border-bottom: 2px solid color.get(transparency);
             //@include animate.ease($property:(border, color));
             // transition: ease-in-out 1s 0 all;
@@ -102,7 +105,7 @@ $nav-height: 40px;
                 position: absolute;
                 width: 0px;
                 height: 3px;
-                z-index: -1;
+                z-index: -2;
                 @include space.inset($b:zero, $l:zero);    
                 //@include transition.ease($duration:200ms, $delay:0ms, $property:(width));
                 // transition: ease-in-out 200ms height, ease-in-out 200ms 200ms width, 300ms 0ms background-color;
@@ -118,7 +121,7 @@ $nav-height: 40px;
                 //@include color.fg(light);
                 @include transition.ease($duration:100ms, $delay:200ms, $property:(color));
                 
-                &.active, &:hover {
+                &.show, &:hover {
                     &:after{
                         width: 100%;
                         //height: calc(100% + 3px);
@@ -133,7 +136,82 @@ $nav-height: 40px;
             }
 
         }
+        
+        .menu-item-has-children {
+            position: relative;
+            // z-index: -1;
+            
+            &>a {
+                //@include space.padding($r:lg);
+                padding-inline-end: 1.6rem !important;
+                
+                &:before {
+                    position: absolute;
+                    content: '\e80e';
+                    font-family: fontello;
+                    width: .5rem;
+                    height: 100%;
+                    inset-inline-end: .5rem;
+                    inset-block-start: 0;
+                    line-height: 1;
+                    display: grid;
+                    align-items: center;
+                    justify-content: center;
+                    color: inherit;
+                    z-index:-1;
+                }
+                &.show:before {
+                    content: '\e80f';
+                }
+            }
+            .menu-item-has-children {
+                &>a {
+                    &:before {
+                        content: '\e811';
+                    }
+                    &.show:before {
+                        content: '\e80e';
+                    }
+                }
+            }
+        }
+        .menu-item-has-children > .dropdown-menu {
+            //background: red;
+        
+            display: none;
+            position: absolute;
+            inset-inline-start: 0;
+            inset-block-start: 100%;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: max-content;
+            @include color.border($color:primary-dark);
+            @include color.bg(primary, .9);
+            
+            a {
+                padding: .4rem 1.2rem;
+                
+                &.show, &:hover {
+                    @include color.bg(accent);
+                }                
+            }
+            
 
+        }
+        
+        .dropdown-toggle.show + .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu.show li {
+            display: block;
+        }
+        
+        .dropdown-menu .dropdown-menu {
+            inset-inline-start: 100%;
+            inset-block-start: 0%;
+
+        }
     }
 
     .tools {
@@ -271,6 +349,21 @@ $nav-height: 40px;
             @include transition.ease($duration:200ms, $property:(inset-inline-end, visibility));
             opacity: .9;
 
+            &>.items {
+                display: block;
+            }
+            
+            .dropdown-menu {
+                min-width: 100%;
+                position: relative;
+                inset-block-start: auto;
+            }
+            .dropdown-menu .dropdown-menu {
+                inset-inline-start: auto;
+                inset-block-start: auto;
+
+            }
+            
             ul {
                 list-style: none;
                 margin: 0;

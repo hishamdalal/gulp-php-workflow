@@ -1,0 +1,74 @@
+@use '../../vars';
+@use '../../lib/breakpoints' as breakpoint;
+@use '../../lib/containers' as container;
+
+.grid {
+    display: grid;
+    container-type: inline-size;
+    container-name: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    gap: .5rem;
+    grid-template-columns: repeat(1, 1fr);
+    
+    @include breakpoint.more-than(xs) {grid-template-columns: repeat(1, 1fr);}
+    @include breakpoint.more-than(sm) {grid-template-columns: repeat(2, 1fr);}
+    @include breakpoint.more-than(md) {grid-template-columns: repeat(3, 1fr);}
+    @include breakpoint.more-than(lg) {grid-template-columns: repeat(4, 1fr);}
+    @include breakpoint.more-than(xl) {grid-template-columns: repeat(5, 1fr);}
+    @include breakpoint.more-than(xxl) {grid-template-columns: repeat(6, 1fr);}
+
+    .col {
+        padding: .5rem;
+        border-radius: 1rem;
+        background-color: yellow;
+    }
+    
+    @include container.more-than-size(grid, 724){
+        .col:nth-child(3n+13) {
+            background-color: gray;
+        }
+    }
+
+    @include container.more-than-size(grid, 836){
+        .col:nth-child(3n+13) {
+            background-color: orange;
+        }
+    }
+    @include container.more-than-size(grid, 938){
+        .col:nth-child(3n+13) {
+            background-color: red;
+        }
+    }    
+    @include container.more-than-size(grid, 975){
+        .col:nth-child(3n+13) {
+            background-color: yellowgreen;
+        }
+    }
+    @include container.more-than-size(grid, 1214){
+        .col:nth-child(3n+13) {
+            background-color: lightgreen;
+        }
+    }
+    @include container.more-than-size(grid, 1399){
+        .col:nth-child(3n+13) {
+            background-color: purple;
+        }
+    }
+    // @container grid (min-width: 400px) {
+    //     .col:nth-child(3n+13) {
+    //         background-color: #1290b9;
+    //     }
+    // }
+    // $i: 1;
+    // @each $key, $map in vars.$breakpoints {
+    //     @include container.equal-to($key){
+    //         .col:nth-last-child(1) {
+    //             background: #00ff2a;
+    //         }
+    //     }
+    //     $i: $i + 1;
+    // }
+
+
+}
