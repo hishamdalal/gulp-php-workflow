@@ -174,6 +174,27 @@ $url = full_url( $_SERVER );
                     <div class="col">12</div>
                     <div class="col">13</div>
                 </div-->
+                <div class="btns-group">
+                    <label class="btn open_dialog" for="#dialog" XonclickX="window.dialog.showModal()">Open dialog</label>
+
+                    <label class="btn open_dialog" for="#dialog2"> Open dialog</label>
+                </div>
+                
+                <dialog id="dialog">
+                    <form method="dialog">
+                        <div>Hello from dialog element. You can close me by clicking outside or Close button</div>
+                        <button class="close_dialog">Close</button>
+                    </form>
+                </dialog>  
+                
+                <dialog id="dialog2">
+                    <form method="dialog">
+                        <div>Hello from dialog 2 element. You can close me by clicking outside or Close button</div>
+                        <button class="close_dialog">Close</button>
+                    </form>
+                </dialog>  
+                
+                
             </form>
         </div>
         <aside>

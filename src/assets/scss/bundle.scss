@@ -1,3 +1,4 @@
+$important: '' !default;
 // @use '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @use '../vendors/normalize';
 @use '../vendors/fontello/css/fontello';
@@ -12,6 +13,7 @@
 @use './components/side';
 @use './components/article';
 @use './components/tabs';
+@use './components/dialog';
 //@use './components/classes/group';
 // @use './components/form';
 // @use './lib/spacing/responsive';

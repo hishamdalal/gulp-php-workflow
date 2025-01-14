@@ -20,10 +20,14 @@
 // }
 
 /*------------------------------------------------------------*/
-@mixin set-property($prop, $k, $v) {
+@mixin set-property($prop, $k, $v, $important:'') {
+	// use global variable
+	@if $important == true {
+		$important: '!important';
+	}
 	// Custom
 	@if($k=='custom') {
-		#{$prop}: #{$v};
+		#{$prop}: #{$v}#{$important};
 	}
 	@else {
 		// for minus value
@@ -42,50 +46,53 @@
 		
 		// Horizontal
 		@if($k=='h' or $k=='inline') {
-			#{$prop}-inline: #{$v};
+			#{$prop}-inline: #{$v}#{$important};
 		}
 
 		// Vertical
 		@if($k=='v' or $k=='block') {
-			#{$prop}-block: #{$v};
+			#{$prop}-block: #{$v}#{$important};
 		}
 		// Top
 		@if($k=='t' or $k=='top') {
-			#{$prop}-block-start: #{$v};
+			#{$prop}-block-start: #{$v}#{$important};
 		}
 		// Bottom
 		@if($k=='b' or $k=='bottom') {
-			#{$prop}-block-end: #{$v};
+			#{$prop}-block-end: #{$v}#{$important};
 		}
 
 		// Right
 		@if($k=='r' or $k=='end') {
-			#{$prop}-inline-end: #{$v};
+			#{$prop}-inline-end: #{$v}#{$important};
 		}
 
 		// Left
 		@if($k=='l' or $k=='start') {
-			#{$prop}-inline-start: #{$v};
+			#{$prop}-inline-start: #{$v}#{$important};
 		}
 		// All
 		@if($k=='all' or $k=='both') {
-			#{$prop}: #{$v};
+			#{$prop}: #{$v}#{$important};
 		}
 		// All
 		@if($k=='z' or $k=='zero') {
-			#{$prop}: 0rem;
+			#{$prop}: 0rem#{$important};
 		}
 	}
+	$important: '';
 }
 /*------------------------------------------------------------*/
-// using meta
+// using meta keywords
 @mixin get($prop, $args...) {
 
 	@each $k, $v in meta.keywords($args) {
 		@include set-property($prop, $k, $v);
 	}
 }
+/*------------------------------------------------------------*/
 // using pairs
+// ?How to use: @include space.get-by-pairs(padding, (h:1, v:2) );
 /*------------------------------------------------------------*/
 @mixin get-by-pairs($prop, $args) {
 
@@ -93,7 +100,6 @@
 		@include set-property($prop, $k, $v);
 	}
 }
-
 /*------------------------------------------------------------*/
 //? How to use:
 // @include padding($both:lg);

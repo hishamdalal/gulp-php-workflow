@@ -47,7 +47,8 @@ exports.nav = function() {
     });
     
 
-
+    // https://stackoverflow.com/a/77235541
+    
     document.addEventListener('click', (event) => {
         // Check if click done inside popover
         const container = event.target.closest('.dropdown-toggle');

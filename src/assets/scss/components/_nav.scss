@@ -175,9 +175,7 @@ $nav-height: 40px;
                 }
             }
         }
-        .menu-item-has-children > .dropdown-menu {
-            //background: red;
-        
+        .menu-item-has-children > .dropdown-menu {        
             display: none;
             position: absolute;
             inset-inline-start: 0;
@@ -306,7 +304,7 @@ $nav-height: 40px;
         z-index: 2;
         cursor: pointer;
         // position: relative;
-        @include space.padding($v:xs, $h:lg);
+        @include space.padding($v:xs, $h:md);
         
         @include breakpoint.more-than(md) {
             display: none;
@@ -362,8 +360,13 @@ $nav-height: 40px;
                 inset-inline-start: auto;
                 inset-block-start: auto;
 
+                @include space.padding($start:md);
             }
             
+            .dropdown-menu .dropdown-menu .dropdown-menu {
+                @include space.padding($start:lg);
+            }
+
             ul {
                 list-style: none;
                 margin: 0;
@@ -378,7 +381,7 @@ $nav-height: 40px;
                 @include color.fg(light);
                 
                 &:focus {
-                    @include color.fg(dark);
+                    //@include color.fg(dark);
                     @include color.bg(light);
                 }
             }

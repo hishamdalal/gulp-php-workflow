@@ -6,6 +6,8 @@ const {tabs} = require('./inc/_tabs');
 // const {toast} = require('./inc/_toast');
 const {sweet_alert} = require('../vendors/sweet-alert/_index');
 const {toast} = require('../vendors/toast/_index');
+const {dialog} = require('./inc/_dialog');
+
 
 count()
 dark_mode();
@@ -13,3 +15,4 @@ nav();
 tabs();
 sweet_alert();
 toast();
+dialog();
